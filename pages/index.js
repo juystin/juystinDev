@@ -9,9 +9,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <div className={styles.header}>
+        <div className={styles.headerTitleContainer}>
+          <h1 className={styles.headerTitle}>juystin</h1>
+        </div>
+        <div className={styles.navContainer}>
+          <ul className={styles.nav}>
+            <li><a href='/contact/'>Contact</a></li>
+            <li><a href='/projects/'>Projects</a></li>
+          </ul>
+        </div>
+      </div>
+
       <main className={styles.main}>
         <h1 className={styles.title}>
-          juystin
+          juystin.dev
         </h1>
 
         <p className={styles.description}>
