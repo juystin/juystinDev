@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -26,9 +27,9 @@
   color: white;
 }
 
-.header {
+.headerContainer {
   position: relative;
-  height: 5vh;
+  height: 7vh;
   width: 100%;
 }
 
@@ -37,35 +38,37 @@
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
 }
 
-.headerTitle {
-  color: white;
-  font-size: 100%;
-  text-align: center;
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 3.75vw;
+  margin-top: 0.8em;
 }
 
-.navContainer {
+.titlePrimary {
+  color: white;
+  font-size: 1.2em;
+}
+
+.titleSecondary {
+  color: white;
+  font-size: 0.8em;
+}
+
+.menuContainer {
   position: absolute;
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-}
-
-.nav {
-  list-style-type: none;
-}
-
-.nav li {
-  float: right;
-  margin: 0px 20px;
-}
-
-.nav li a { 
-  text-decoration: none;
-  color: white;
+  justify-content: flex-start;
+  padding-left: 1vw;
+  padding-top: 0.4em;
 }
