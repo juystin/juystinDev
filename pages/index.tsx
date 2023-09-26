@@ -15,7 +15,7 @@ export default function Home() {
           <title>juystin.dev</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-      <Header setNavOpen={setNavOpen}/>
+      <Header navOpen={navOpen} setNavOpen={setNavOpen}/>
       <Main />
       <Navigation navOpen={navOpen}/>
     </div>
