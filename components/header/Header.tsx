@@ -41,7 +41,8 @@ const MenuContainer = styled.div`
     margin: 0 1%;
 `
 
-const Header = () => {
+const Header = ({setNavOpen}) => {
+    
     return ( 
         <HeaderContainer>
             <MenuContainer>
@@ -49,6 +50,9 @@ const Header = () => {
                     priority
                     src={menuIcon}
                     alt="Menu"
+                    onClick={() => {
+                        setNavOpen((navOpen) => (!navOpen))
+                    }}
                 />
             </MenuContainer>
             <TitleContainer>

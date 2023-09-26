@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 
 const NavContainer = styled.div`
@@ -8,10 +9,14 @@ const NavContainer = styled.div`
     background-color: crimson;
 `
 
-const Navigation = () => {
+const Navigation = ({navOpen}) => {
     
+    useEffect(() => {
+        console.log(navOpen)
+    }, [navOpen])
+
     return ( 
-        <NavContainer />
+        navOpen ? <NavContainer /> : <></>
      );
 }
  
