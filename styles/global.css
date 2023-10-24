@@ -22,6 +22,10 @@ body {
   overflow-x: clip;
 }
 
+/* html {
+  background-color: black;
+} */
+
 @font-face {
   font-family: 'Josefin Sans';
   src: local('Josefin Sans'), url(../assets/fonts/JosefinSans/JosefinSans-Regular.ttf) format('truetype');

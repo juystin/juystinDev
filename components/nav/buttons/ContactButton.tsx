@@ -21,13 +21,13 @@ const ButtonDescription = styled(animated.p)`
     margin: 0 0;
 `
 
-const ProjectsButton = ({}) => {
+const ContactButton = ({}) => {
     return ( 
         <ButtonContainer>
-            <ButtonTitle>PROJECTS</ButtonTitle>
-            <ButtonDescription>My work</ButtonDescription>
+            <ButtonTitle>CONTACT</ButtonTitle>
+            <ButtonDescription>Work with me</ButtonDescription>
         </ButtonContainer>
      );
 }
  
-export default ProjectsButton;
+export default ContactButton;
