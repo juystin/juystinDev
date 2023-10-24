@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import Image from 'next/image';
 import menuIcon from "../../assets/header/menu.svg"
-import specialMenuIcon from "../../assets/header/specialMenu.svg"
 import { animated, useSpring } from "react-spring";
 import { useEffect } from "react";
+import Hamburger from "./Hamburger";
+import SpecialHamburger from "./SpecialHamburger";
 
 const HeaderContainer = styled.div`
     position: absolute;
@@ -24,15 +25,17 @@ const TitleContainer = styled.div`
 `
 
 const TitlePrimary = styled.h1`
-    color: white;
+    color: #E7E7E7;
     font-size: 1.2em;
     margin: 0;
+    font-weight: bold;
 `
 
 const TitleSecondary = styled.p`
-    color: white;
+    color: #E7E7E7;
     font-size: 0.8em;
     margin: 0;
+    font-weight: lighter;
 `
 
 const MenuContainer = styled.div`
@@ -46,7 +49,7 @@ const MenuContainer = styled.div`
 
 const SpecialHeaderContainer = styled(animated.div)`
     position: absolute;
-    z-index: 3;
+    z-index: 4;
     height: 7vh;
     width: 0%;
     display: flex;
@@ -65,17 +68,19 @@ const SpecialTitleContainer = styled.div`
 `
 
 const SpecialTitlePrimary = styled.h1`
-    color: orange;
+    color: #E2271E;
     font-size: 1.2em;
     margin: 0;
     white-space: nowrap;
+    font-weight: bold;
 `
 
 const SpecialTitleSecondary = styled.p`
-    color: orange;
+    color: #E2271E;
     font-size: 0.8em;
     margin: 0;
     white-space: nowrap;
+    font-weight: lighter;
 `
 
 const SpecialMenuContainer = styled.div`
@@ -98,8 +103,8 @@ const Header = ({navOpen, setNavOpen}) => {
             width: navOpen ? "25vw" : "0%",
             config: {
                 mass: 1,
-                friction: 20,
-                tension: 100,
+                friction: 35,
+                tension: 220,
             }
         })
     }, [navOpen])
@@ -108,14 +113,7 @@ const Header = ({navOpen, setNavOpen}) => {
         <>
             <HeaderContainer>
                 <MenuContainer>
-                    <Image
-                        priority
-                        src={menuIcon}
-                        alt="Menu"
-                        onClick={() => {
-                            setNavOpen((navOpen) => (!navOpen))
-                        }}
-                    />
+                    <Hamburger color="white" navOpen={navOpen} setNavOpen={setNavOpen}/>
                 </MenuContainer>
                 <TitleContainer>
                     <TitlePrimary>Justin Nguyen</TitlePrimary>
@@ -124,14 +122,7 @@ const Header = ({navOpen, setNavOpen}) => {
             </HeaderContainer>
             <SpecialHeaderContainer style={specialHeaderAnimation}>
                 <SpecialMenuContainer>
-                    <Image
-                        priority
-                        src={specialMenuIcon}
-                        alt="Menu"
-                        onClick={() => {
-                            setNavOpen((navOpen) => (!navOpen))
-                        }}
-                    />
+                    <SpecialHamburger color="red" navOpen={navOpen} setNavOpen={setNavOpen}/>
                 </SpecialMenuContainer>
                 <SpecialTitleContainer>
                     <SpecialTitlePrimary>Justin Nguyen</SpecialTitlePrimary>

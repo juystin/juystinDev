@@ -9,7 +9,7 @@ const ContentContainer = styled.main`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: black;
+    background-color: #0A090A;
 `
 
 const Title = styled.h1`
