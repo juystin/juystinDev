@@ -1,17 +1,7 @@
 import { useEffect, useState } from "react";
 import { animated, useSpring } from "react-spring";
 
-const topStyle = {
-    fill: "none",
-    stroke: "#FFFFFF",
-    strokeWidth: "0.595312",
-    strokeDasharray: "3.9",
-    strokeDashoffset: "0",
-    strokeOpacity: "1",
-    d: "M 1.2075125,3.175 H 3.6862369 5.1424874"
-}
-
-const Hamburger = ({color, navOpen, setNavOpen}) => {
+const Hamburger = ({navOpen, setNavOpen, routeTransitioning}) => {
 
     const [midAnimation, midApi] = useSpring(() => ({
         fill: "none",
@@ -21,8 +11,6 @@ const Hamburger = ({color, navOpen, setNavOpen}) => {
         strokeDashoffset: "0",
         strokeOpacity: "1",
         d: "M 1.2075125,3.175 H 3.6862369 5.1424874",
-        width: "100%",
-        opacity: "0"
     }));
 
     const [topAnimation, topApi] = useSpring(() => ({
@@ -49,7 +37,6 @@ const Hamburger = ({color, navOpen, setNavOpen}) => {
         midApi.start({
             to: {
                 strokeDashoffset: !navOpen ? "0" : "-3.9",
-                opacity: !navOpen ? "1" : "0",
             },
             config: {
                 precision: 0.00001
@@ -76,8 +63,10 @@ const Hamburger = ({color, navOpen, setNavOpen}) => {
             viewBox="0 0 6.3499999 6.35"
             xmlns="http://www.w3.org/2000/svg"
             onClick={() => {
-                setNavOpen(!navOpen)}
-            }
+                if (!routeTransitioning) {
+                    setNavOpen(!navOpen)
+                }
+            }}
             >
             <animated.path
                 {...midAnimation}

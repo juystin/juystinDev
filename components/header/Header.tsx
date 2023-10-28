@@ -5,19 +5,20 @@ import { animated, useSpring } from "react-spring";
 import { useEffect } from "react";
 import Hamburger from "./Hamburger";
 import SpecialHamburger from "./SpecialHamburger";
+import { Link, useNavigate } from "react-router-dom";
 
-const HeaderContainer = styled.div`
-    position: absolute;
+const HeaderContainer = styled(animated.div)`
+    position: fixed;
     z-index: 2;
     height: 7vh;
     width: 100%;
     display: flex;
+    align-items: center;
     padding-top: 0.25%;
+    background-color: #0A090A;
 `
 
 const TitleContainer = styled.div`
-    height: 100%;
-    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -29,6 +30,7 @@ const TitlePrimary = styled.h1`
     font-size: 1.2em;
     margin: 0;
     font-weight: bold;
+    cursor: pointer;
 `
 
 const TitleSecondary = styled.p`
@@ -36,19 +38,19 @@ const TitleSecondary = styled.p`
     font-size: 0.8em;
     margin: 0;
     font-weight: lighter;
+    cursor: pointer;
 `
 
 const MenuContainer = styled.div`
-    height: 100%;
-    min-width: 50px;
-    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 0.75vw;
+    cursor: pointer;
 `
 
 const SpecialHeaderContainer = styled(animated.div)`
-    position: absolute;
+    position: fixed;
     z-index: 4;
     height: 7vh;
     width: 0%;
@@ -58,9 +60,6 @@ const SpecialHeaderContainer = styled(animated.div)`
 `
 
 const SpecialTitleContainer = styled.div`
-    height: 100%;
-    min-width: fit-content;
-    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -73,6 +72,7 @@ const SpecialTitlePrimary = styled.h1`
     margin: 0;
     white-space: nowrap;
     font-weight: bold;
+    cursor: pointer;
 `
 
 const SpecialTitleSecondary = styled.p`
@@ -81,50 +81,104 @@ const SpecialTitleSecondary = styled.p`
     margin: 0;
     white-space: nowrap;
     font-weight: lighter;
+    cursor: pointer;
 `
 
 const SpecialMenuContainer = styled.div`
-    height: 100%;
-    min-width: 50px;
-    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 0.75vw;
+    cursor: pointer;
 `
 
-const Header = ({navOpen, setNavOpen}) => {
+const PageNameContainer = styled.div`
+    position: fixed;
+    z-index: 5;
+    height: 7vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.25%;
+    overflow: clip;
+    text-transform: uppercase;
+    pointer-events: none;
+`
+
+const PageName = styled.h2`
+    margin-top: 2vh;
+    color: white;
+`
+
+const Header = ({navOpen, setNavOpen, routeTransitioning, activePage, setActivePage, inAnimation, homeFadeInApi}) => {
+
+    const navigate = useNavigate();
 
     const [specialHeaderAnimation, specialHeaderApi] = useSpring(() => ({
-        width: navOpen ? "0%" : "25vw"
+        config: {
+            mass: 1,
+            friction: 35,
+            tension: 220,
+        }
     }));
 
     useEffect(() => {
         specialHeaderApi.start({
-            width: navOpen ? "25vw" : "0%",
-            config: {
-                mass: 1,
-                friction: 35,
-                tension: 220,
+            to: {
+                width: navOpen ? "25vw" : "0%"
             }
         })
     }, [navOpen])
     
     return (
         <>
-            <HeaderContainer>
+            <PageNameContainer>
+                <PageName>{activePage}</PageName>
+            </PageNameContainer>
+            <HeaderContainer style={inAnimation}>
                 <MenuContainer>
-                    <Hamburger color="white" navOpen={navOpen} setNavOpen={setNavOpen}/>
+                    <Hamburger navOpen={navOpen} setNavOpen={setNavOpen} routeTransitioning={routeTransitioning}/>
                 </MenuContainer>
-                <TitleContainer>
+                <TitleContainer
+                    onClick={() => {
+                        if (!routeTransitioning && activePage !== "home") {
+                            navigate("/")
+                            setActivePage("home")
+                            homeFadeInApi.start({
+                                from: {
+                                    opacity: 0
+                                },
+                                to: {
+                                    opacity: 1
+                                }
+                            })
+                        }
+                    }}
+                >
                     <TitlePrimary>Justin Nguyen</TitlePrimary>
                     <TitleSecondary>Full Stack Developer</TitleSecondary>
                 </TitleContainer>
             </HeaderContainer>
             <SpecialHeaderContainer style={specialHeaderAnimation}>
                 <SpecialMenuContainer>
-                    <SpecialHamburger color="red" navOpen={navOpen} setNavOpen={setNavOpen}/>
+                    <SpecialHamburger color="red" navOpen={navOpen} setNavOpen={setNavOpen} routeTransitioning={routeTransitioning}/>
                 </SpecialMenuContainer>
-                <SpecialTitleContainer>
+                <SpecialTitleContainer
+                    onClick={() => {
+                        if (!routeTransitioning && activePage !== "home") {
+                            navigate("/")
+                            setActivePage("home")
+                            homeFadeInApi.start({
+                                from: {
+                                    opacity: 0
+                                },
+                                to: {
+                                    opacity: 1
+                                }
+                            })
+                        }
+                    }}
+                >
                     <SpecialTitlePrimary>Justin Nguyen</SpecialTitlePrimary>
                     <SpecialTitleSecondary>Full Stack Developer</SpecialTitleSecondary>
                 </SpecialTitleContainer>

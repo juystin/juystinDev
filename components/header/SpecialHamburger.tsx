@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { animated, useSpring } from "react-spring";
 
-const SpecialHamburger = ({color, navOpen, setNavOpen}) => {
+const SpecialHamburger = ({color, navOpen, setNavOpen, routeTransitioning}) => {
 
     const [midAnimation, midApi] = useSpring(() => ({
         fill: "none",
@@ -12,7 +12,7 @@ const SpecialHamburger = ({color, navOpen, setNavOpen}) => {
         strokeOpacity: "1",
         d: "M 1.2075125,3.175 H 3.6862369 5.1424874",
         width: "100%",
-        opacity: "0"
+        opacity: !navOpen ? "0" : "1",
     }));
 
     const [topAnimation, topApi] = useSpring(() => ({
@@ -63,8 +63,10 @@ const SpecialHamburger = ({color, navOpen, setNavOpen}) => {
             viewBox="0 0 6.3499999 6.35"
             xmlns="http://www.w3.org/2000/svg"
             onClick={() => {
-                setNavOpen(!navOpen)}
-            }
+                if (!routeTransitioning) {
+                    setNavOpen(!navOpen)
+                }
+            }}
             >
             <animated.path
                 {...midAnimation}
