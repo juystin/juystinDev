@@ -19,7 +19,7 @@ const ImageSection = styled.div`
 const Image = styled.div`
     display: flex;
     width: 100%;
-    height: 580px;
+    height: 600px;
     flex-direction: column;
     background: purple;
     border-radius: 6px;
@@ -34,14 +34,13 @@ const TextSection = styled.div`
 
 const TextContainer = styled.div`
     width: 100%;
-    height: auto;
-    max-height: 600px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     justify-content: space-between;
     position: sticky;
-    top: 10px;
+    top: 40px;
 `
 
 const Title = styled.h1`
@@ -63,25 +62,50 @@ const RelatedBlogsSection = styled.div`
     grid-row: 2 / 3;
     height: 100%;
     width: 100%;
-    background: purple;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
 `
 
-const RelatedBlogsTitle = styled.h1`
+const ExtraBlogsTitle = styled.h1`
     font-family: Raleway;
     color: white;
 `
 
+const ExtraBlogsContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 20px;
+    height: 100%;
+    width: 100%;
+`
+
+const ExtraBlog = styled.div`
+    height: 100%;
+    width: 400px;
+    border-radius: 6px;
+    background: purple;
+`
+
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 100%;
+`
+
 const DemoButton = styled.div`
     height: 80px;
+    width: 100%;
     border-radius: 6px;
     background-color: gray;
 `
 
 const GitHubButton = styled.div`
     height: 80px;
+    width: 100%;
     border-radius: 6px;
     background-color: gray;
 `
@@ -101,12 +125,18 @@ const Project = ({id, name}) => {
                     <Description>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod ipsum eu venenatis suscipit. Mauris quis metus sit amet elit.
                     </Description>
-                    <DemoButton />
-                    <GitHubButton />
+                    <ButtonContainer>
+                        <DemoButton />
+                        <GitHubButton />
+                    </ButtonContainer>
                 </TextContainer>
             </TextSection>
             <RelatedBlogsSection>
-                <RelatedBlogsTitle>Related Blogs</RelatedBlogsTitle>
+                <ExtraBlogsTitle>Related Blogs</ExtraBlogsTitle>
+                <ExtraBlogsContainer>
+                    <ExtraBlog></ExtraBlog>
+                    <ExtraBlog></ExtraBlog>
+                </ExtraBlogsContainer>
             </RelatedBlogsSection>
         </PageStructure>
      );
