@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import ScrollToTop from '../components/utility/ScrollToTop';
 import Blogs from '../components/content/blogs/Blogs';
 import Pictures from '../components/content/pictures/Pictures';
+import Project from '../components/content/projects/Project';
 
 const PageLayout = styled.div`
 	display: grid;
@@ -29,6 +30,8 @@ export default function App() {
 				<Routes>
 					<Route path="/*" element={<Home />} />
 					<Route path="/projects" element={<Projects />} />
+					<Route path="/projects/brutusmaps" element={<Project id={0} name={"brutusmaps"}/>} />
+					<Route path="/projects/brutusforce" element={<Project id={1} name={"brutusforce"}/>} />
 					<Route path="/blogs" element={<Blogs />} />
 					<Route path="/pictures" element={<Pictures />} />
 				</Routes>

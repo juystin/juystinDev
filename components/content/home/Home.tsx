@@ -27,7 +27,7 @@ const TitleContainer = styled.div`
 
 const Title = styled(animated.h1)`
     font-family: Josefin Sans;
-    font-size: 11vw;
+    font-size: 11.4vw;
     color: white;
     margin: 0 0;
 `

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 
@@ -12,6 +13,8 @@ const Container = styled(animated.div)`
 `
 
 const Button = ({id, name}) => {
+
+    const navigate = useNavigate();
     
     const [buttonAnimation, buttonApi] = useSpring(() => ({
 		from: {
@@ -34,7 +37,7 @@ const Button = ({id, name}) => {
     }, [])
 
     return ( 
-        <Container style={buttonAnimation}>
+        <Container style={buttonAnimation} onClick={() => navigate("/projects/" + name + "/")}>
         </Container>
      );
 }
