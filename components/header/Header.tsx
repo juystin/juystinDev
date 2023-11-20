@@ -39,6 +39,7 @@ const NavContainer = styled.nav`
 const NavButton = styled.a`
     color: white;
     text-decoration: none;
+    cursor: pointer;
 `
 
 const Header = ({}) => {
@@ -51,9 +52,9 @@ const Header = ({}) => {
                 <Logo onClick={() => navigate("/")}></Logo>
             </LogoContainer>
             <NavContainer>
-                <NavButton href="/projects/">Projects</NavButton>
-                <NavButton href="/blogs/">Blogs</NavButton>
-                <NavButton href="/pictures/">Pictures</NavButton>
+                <NavButton onClick={() => navigate("/projects")}>Projects</NavButton>
+                <NavButton onClick={() => navigate("/blogs")}>Blogs</NavButton>
+                <NavButton onClick={() => navigate("/pictures")}>Pictures</NavButton>
             </NavContainer>
         </HeaderContainer>
      );
