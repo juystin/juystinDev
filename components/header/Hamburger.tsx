@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { animated, useSpring } from "react-spring";
 
-const Hamburger = ({navOpen, setNavOpen, routeTransitioning}) => {
+const Hamburger = ({navOpen, setNavOpen}) => {
 
     const [midAnimation, midApi] = useSpring(() => ({
         fill: "none",
@@ -63,9 +63,7 @@ const Hamburger = ({navOpen, setNavOpen, routeTransitioning}) => {
             viewBox="0 0 6.3499999 6.35"
             xmlns="http://www.w3.org/2000/svg"
             onClick={() => {
-                if (!routeTransitioning) {
-                    setNavOpen(!navOpen)
-                }
+                setNavOpen(!navOpen)
             }}
             >
             <animated.path

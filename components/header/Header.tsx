@@ -1,189 +1,61 @@
 import styled from "styled-components";
-import Image from 'next/image';
-import menuIcon from "../../assets/header/menu.svg"
-import { animated, useSpring } from "react-spring";
-import { useEffect } from "react";
-import Hamburger from "./Hamburger";
-import SpecialHamburger from "./SpecialHamburger";
-import { Link, useNavigate } from "react-router-dom";
+import Logo from "./Logo";
+import { useNavigate } from "react-router-dom";
 
-const HeaderContainer = styled(animated.div)`
-    position: fixed;
-    z-index: 2;
-    height: 7vh;
+const HeaderContainer = styled.div`
+    grid-row: 1 / 2;
     width: 100%;
-    display: flex;
-    align-items: center;
-    padding-top: 0.25%;
-    background-color: #0A090A;
+    display: grid;
+    grid-template-columns: minmax(60px, 1fr) 14fr;
+    grid-template-rows: 100%;
+    height: 100%;
 `
 
-const TitleContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-`
-
-const TitlePrimary = styled.h1`
-    color: #E7E7E7;
-    font-size: 1.2em;
-    margin: 0;
-    font-weight: bold;
-    cursor: pointer;
-`
-
-const TitleSecondary = styled.p`
-    color: #E7E7E7;
-    font-size: 0.8em;
-    margin: 0;
-    font-weight: lighter;
-    cursor: pointer;
-`
-
-const MenuContainer = styled.div`
+const LogoContainer = styled.div`
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 0.75vw;
     cursor: pointer;
+    height: 100%;
+    width: max(50px, 60%);
+    z-index: 10;
+    margin-left: 20px;
 `
 
-const SpecialHeaderContainer = styled(animated.div)`
-    position: fixed;
-    z-index: 4;
-    height: 7vh;
-    width: 0%;
-    display: flex;
-    padding-top: 0.25%;
-    overflow: clip;
-`
-
-const SpecialTitleContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-`
-
-const SpecialTitlePrimary = styled.h1`
-    color: #E2271E;
-    font-size: 1.2em;
-    margin: 0;
-    white-space: nowrap;
-    font-weight: bold;
-    cursor: pointer;
-`
-
-const SpecialTitleSecondary = styled.p`
-    color: #E2271E;
-    font-size: 0.8em;
-    margin: 0;
-    white-space: nowrap;
-    font-weight: lighter;
-    cursor: pointer;
-`
-
-const SpecialMenuContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0.75vw;
-    cursor: pointer;
-`
-
-const PageNameContainer = styled.div`
-    position: fixed;
+const NavContainer = styled.nav`
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    height: 100%;
     z-index: 5;
-    height: 7vh;
-    width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding-top: 0.25%;
-    overflow: clip;
-    text-transform: uppercase;
-    pointer-events: none;
+    gap: 16px;
+    font-family: Raleway;
 `
 
-const PageName = styled.h2`
-    margin-top: 2vh;
+const NavButton = styled.a`
     color: white;
+    text-decoration: none;
 `
 
-const Header = ({navOpen, setNavOpen, routeTransitioning, activePage, setActivePage, inAnimation, homeFadeInApi}) => {
+const Header = ({}) => {
 
     const navigate = useNavigate();
-
-    const [specialHeaderAnimation, specialHeaderApi] = useSpring(() => ({
-        config: {
-            mass: 1,
-            friction: 35,
-            tension: 220,
-        }
-    }));
-
-    useEffect(() => {
-        specialHeaderApi.start({
-            to: {
-                width: navOpen ? "25vw" : "0%"
-            }
-        })
-    }, [navOpen])
     
     return (
-        <>
-            <PageNameContainer>
-                <PageName>{activePage}</PageName>
-            </PageNameContainer>
-            <HeaderContainer style={inAnimation}>
-                <MenuContainer>
-                    <Hamburger navOpen={navOpen} setNavOpen={setNavOpen} routeTransitioning={routeTransitioning}/>
-                </MenuContainer>
-                <TitleContainer
-                    onClick={() => {
-                        if (!routeTransitioning && activePage !== "home") {
-                            navigate("/")
-                            setActivePage("home")
-                            homeFadeInApi.start({
-                                from: {
-                                    opacity: 0
-                                },
-                                to: {
-                                    opacity: 1
-                                }
-                            })
-                        }
-                    }}
-                >
-                    <TitlePrimary>Justin Nguyen</TitlePrimary>
-                    <TitleSecondary>Full Stack Developer</TitleSecondary>
-                </TitleContainer>
-            </HeaderContainer>
-            <SpecialHeaderContainer style={specialHeaderAnimation}>
-                <SpecialMenuContainer>
-                    <SpecialHamburger color="red" navOpen={navOpen} setNavOpen={setNavOpen} routeTransitioning={routeTransitioning}/>
-                </SpecialMenuContainer>
-                <SpecialTitleContainer
-                    onClick={() => {
-                        if (!routeTransitioning && activePage !== "home") {
-                            navigate("/")
-                            setActivePage("home")
-                            homeFadeInApi.start({
-                                from: {
-                                    opacity: 0
-                                },
-                                to: {
-                                    opacity: 1
-                                }
-                            })
-                        }
-                    }}
-                >
-                    <SpecialTitlePrimary>Justin Nguyen</SpecialTitlePrimary>
-                    <SpecialTitleSecondary>Full Stack Developer</SpecialTitleSecondary>
-                </SpecialTitleContainer>
-            </SpecialHeaderContainer>
-        </>
+        <HeaderContainer>
+            <LogoContainer>
+                <Logo onClick={() => navigate("/")}></Logo>
+            </LogoContainer>
+            <NavContainer>
+                <NavButton href="/projects/">Projects</NavButton>
+                <NavButton href="/blogs/">Blogs</NavButton>
+                <NavButton href="/pictures/">Pictures</NavButton>
+            </NavContainer>
+        </HeaderContainer>
      );
 }
  

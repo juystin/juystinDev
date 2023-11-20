@@ -3,6 +3,7 @@ body {
   padding: 0;
   margin: 0;
   font-family:
+    Muli
     Josefin Sans,
     Roboto,
     Inter,
@@ -22,51 +23,28 @@ body {
   overflow-x: clip;
 }
 
-/* html {
+html {
   background-color: black;
-} */
+}
 
 @font-face {
   font-family: 'Josefin Sans';
-  src: local('Josefin Sans'), url(../assets/fonts/JosefinSans/JosefinSans-Regular.ttf) format('truetype');
+  src: local('Josefin Sans'), url(../public/assets/fonts/JosefinSans/JosefinSans-Regular.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Josefin Sans';
   font-weight: bold;
-  src: local('Josefin Sans'), url(../assets/fonts/JosefinSans/JosefinSans-Bold.ttf) format('truetype');
+  src: local('Josefin Sans'), url(../public/assets/fonts/JosefinSans/JosefinSans-Bold.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Josefin Sans';
   font-weight: lighter;
-  src: local('Josefin Sans'), url(../assets/fonts/JosefinSans/JosefinSans-Light.ttf) format('truetype');
+  src: local('Josefin Sans'), url(../public/assets/fonts/JosefinSans/JosefinSans-Light.ttf) format('truetype');
 }
 
 @font-face {
-  font-family: 'Poppins';
-  src: local('Josefin Sans'), url(../assets/fonts/Poppins/Poppins-Regular.otf) format('opentype');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-weight: bold;
-  src: local('Josefin Sans'), url(../assets/fonts/Poppins/Poppins-Medium.otf) format('opentype');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-weight: lighter;
-  src: local('Josefin Sans'), url(../assets/fonts/Poppins/Poppins-Thin.otf) format('opentype');
-}
-
-@font-face {
-  font-family: 'Merriweather';
-  src: local('Merriweather'), url(../assets/fonts/Merriweather/Merriweather-Regular.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Merriweather';
-  font-weight: lighter;;
-  src: local('Merriweather'), url(../assets/fonts/Merriweather/Merriweather-Light.ttf) format('truetype');
+  font-family: 'Raleway';
+  src: local('Raleway'), url(../public/assets/fonts/Raleway/Raleway-Medium.ttf) format('truetype');
 }
