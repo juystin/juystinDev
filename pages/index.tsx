@@ -12,7 +12,7 @@ import Pictures from '../components/content/pictures/Pictures';
 
 const PageLayout = styled.div`
 	display: grid;
-	grid-template-rows: 80px auto 40px;
+	grid-template-rows: 75px auto 50px;
 `
 
 export default function App() {

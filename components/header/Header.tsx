@@ -32,7 +32,7 @@ const NavContainer = styled.nav`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 18px;
     font-family: Raleway;
 `
 
