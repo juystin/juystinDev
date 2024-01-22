@@ -4,7 +4,7 @@ const FooterSection = styled.div`
     grid-row: 3 / 4;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
     height: 100%;
     padding: 0px 20px;
 `
@@ -12,7 +12,7 @@ const FooterSection = styled.div`
 const FooterName = styled.h2`
     font-family: Raleway;
     font-size: 100%;
-    color: white;
+    color: ${props => props.theme.colors.white};
 `
 
 const Footer = () => {

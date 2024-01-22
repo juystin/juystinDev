@@ -3,16 +3,24 @@ import { useNavigate } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 
-const Container = styled(animated.div)`
+const Container = styled(animated.div)<{ index: number }>`
     display: flex;
     width: 100%;
-    height: 500px;
+    height: auto;
+    aspect-ratio: 5 / 3;
     flex-direction: column;
-    background: purple;
+    background: ${props => props.index % 4 === 0 ? props.theme.colors.white : props.index % 4 === 3 ? props.theme.colors.white : props.theme.colors.black};
     border-radius: 6px;
+    overflow: clip;
+    cursor: pointer;
 `
 
-const Button = ({id, name}) => {
+const Thumbnail = styled.img`
+    height: 100%;
+    width: 100%;
+`
+
+const Button = ({ data }) => {
 
     const navigate = useNavigate();
     
@@ -29,17 +37,18 @@ const Button = ({id, name}) => {
             },
             config: {
                 mass: 1,
-                friction: 50,
-                tension: 100
+                friction: 40,
+                tension: 65
             },
-            delay: 1400 + (id * 350)
+            delay: (700 + (data.id * 400))
         })
     }, [])
 
     return ( 
-        <Container style={buttonAnimation} onClick={() => navigate("/projects/" + name + "/")}>
+        <Container style={buttonAnimation} onClick={() => navigate("/projects/" + data.short + "/")} index={data.id}>
+            <Thumbnail src={"assets/thumbnails/projects/" + data.short + "/0.png"} alt={data.title} />
         </Container>
      );
 }
- 
+
 export default Button;

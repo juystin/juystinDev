@@ -5,42 +5,35 @@ import Button from "./Button";
 
 const PageStructure = styled.main`
     display: grid;
-    grid-template-rows: minmax(200px, 25vw) auto;
+    grid-template-rows: min-content auto;
+    margin-top: 21vh;
+    row-gap: 15px;
+    padding: 0 2vw;
 `
 
 const TitleSection = styled.div`
     grid-row: 1 / 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin-top: max(50px, 5vw);
 `
 
 const TitleContainer = styled.div`
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
     overflow: clip;
 `
 
 const Title = styled(animated.h1)`
     font-family: Josefin Sans;
-    font-size: max(42pt, 11vw);
-    color: white;
-    margin: 0px 0px 0px 20px;
+    font-size: 11.4vw;
+    color: ${props => props.theme.colors.white};
+    margin: 0 0;
 `
 
 const ButtonSection = styled.div`
     grid-row: 2 / 3;
     display: grid;
     grid-template-columns: 100%;
-    margin: 20px 20px 60px 20px;
-    gap: 20px;
 `
 
-const Blogs = () => {
+const Blogs = ({ data }) => {
     const [textIntroAnimation, textIntroApi] = useSpring(() => ({
 		from: {
 			opacity: 0,
@@ -71,8 +64,11 @@ const Blogs = () => {
                 </TitleContainer>
             </TitleSection>
             <ButtonSection>
-                <Button id={0} name={"brutusmaps"} />
-                <Button id={1} name={"brutusforce"} />
+            { data["blogs"].map((blog) => {
+                    return (
+                        <Button data={blog} />
+                    )
+				}) }
             </ButtonSection>
         </PageStructure>
      );

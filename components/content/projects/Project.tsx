@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import blogData from "../../../public/data/blogs.json"
+import { useNavigate } from "react-router-dom";
+import GithubLogo from "../../header/GithubLogo";
 
 const PageStructure = styled.main`
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto 300px;
+    grid-template-rows: auto auto;
     row-gap: 40px;
     column-gap: 20px;
     margin: 80px 20px 60px 20px;
@@ -16,13 +19,16 @@ const ImageSection = styled.div`
     row-gap: 20px;
 `
 
-const Image = styled.div`
+const Image = styled.div<{ id: number }>`
     display: flex;
     width: 100%;
-    height: 600px;
+    height: auto;
+    aspect-ratio: 5 / 3;
     flex-direction: column;
-    background: purple;
     border-radius: 6px;
+    overflow: clip;
+
+    background: ${props => props.id % 2 === 0 ? props.theme.colors.white : props.theme.colors.black};
 `
 
 const TextSection = styled.div`
@@ -34,7 +40,7 @@ const TextSection = styled.div`
 
 const TextContainer = styled.div`
     width: 100%;
-    height: 500px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -44,7 +50,7 @@ const TextContainer = styled.div`
 `
 
 const Title = styled.h1`
-    color: white;
+    color: ${props => props.theme.colors.white};
     text-transform: uppercase;
     width: 100%;
     margin-top: -12px;
@@ -52,7 +58,7 @@ const Title = styled.h1`
 `
 
 const Description = styled.p`
-    color: white;
+    color: ${props => props.theme.colors.white};
     width: 100%;
     margin-top: -24px;
 `
@@ -60,7 +66,7 @@ const Description = styled.p`
 const RelatedBlogsSection = styled.div`
     grid-column: 1 / 3;
     grid-row: 2 / 3;
-    height: 100%;
+    height: 300px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -70,7 +76,7 @@ const RelatedBlogsSection = styled.div`
 
 const ExtraBlogsTitle = styled.h1`
     font-family: Raleway;
-    color: white;
+    color: ${props => props.theme.colors.white};
 `
 
 const ExtraBlogsContainer = styled.div`
@@ -86,7 +92,11 @@ const ExtraBlog = styled.div`
     height: 100%;
     width: 400px;
     border-radius: 6px;
-    background: purple;
+    background: ${props => props.theme.colors.scarlet};
+
+    position: relative;
+
+    overflow: clip;
 `
 
 const ButtonContainer = styled.div`
@@ -96,48 +106,200 @@ const ButtonContainer = styled.div`
     width: 100%;
 `
 
-const DemoButton = styled.div`
+const DemoButton = styled.a`
     height: 80px;
     width: 100%;
     border-radius: 6px;
-    background-color: gray;
+    background: ${props => props.theme.colors.scarlet};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
 `
 
-const GitHubButton = styled.div`
+const DemoText = styled.span`
+    font-family: system-ui;
+    font-size: 18pt;
+
+    text-transform: uppercase;
+
+    font-weight: 300;
+
+    color: ${props => props.theme.colors.white};
+`
+
+const GitHubButton = styled.a`
     height: 80px;
     width: 100%;
     border-radius: 6px;
-    background-color: gray;
+    background: ${props => props.theme.colors.scarlet};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-decoration: none;
 `
 
-const Project = ({id, name}) => {
+const GithubText = styled.span`
+    font-family: system-ui;
+    font-size: 18pt;
+
+    text-transform: uppercase;
+
+    font-weight: 550;
+
+    color: ${props => props.theme.colors.white};
+`
+
+const Thumbnail = styled.img`
+    height: 100%;
+    width: 100%;
+`
+
+const BlogImage = styled.img`
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+
+    position: absolute;
+    z-index: 1;
+`
+
+const ShadowOverlay = styled.div`
+    height: 100%;
+    width: 100%;
+
+    -webkit-box-shadow:inset 0 0 24px 4px ${props => props.theme.colors.black};
+    box-shadow:inset 0 0 24px 4px ${props => props.theme.colors.black};
+
+    position: absolute;
+    z-index: 3;
+`
+
+const ScreenOverlay = styled.div`
+    height: 100%;
+    width: 100%;
+
+    background: ${props => props.theme.colors.black};
+
+    position: absolute;
+    z-index: 2;
+
+    opacity: 0.58;
+`
+
+const BlogNameSection = styled.div`
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    z-index: 4;
+`
+
+const BlogNameContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+`
+
+const BlogTitle = styled.h1`
+    color: ${props => props.theme.colors.white};
+    font-family: system-ui;
+
+    font-size: 28pt;
+
+    margin: 0 0;
+`
+
+const BlogSubtitle = styled.h2`
+    color: ${props => props.theme.colors.white};
+    font-family: system-ui;
+
+    font-size: 16pt;
+
+    margin: 0 0 0 0;
+`
+
+const Project = ({data}) => {
+
+    const navigate = useNavigate();
+
     return ( 
         <PageStructure>
             <ImageSection>
-                <Image></Image>
-                <Image></Image>
-                <Image></Image>
-                <Image></Image>
+                { data.image_urls.map((url: string, index: number) => {
+                    return (
+                        <Image id={index}>
+                            <Thumbnail src={"/" + url} />
+                        </Image>
+                    )
+                    }
+                )}
             </ImageSection>
             <TextSection>
                 <TextContainer>
-                    <Title>{name}</Title>
-                    <Description>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod ipsum eu venenatis suscipit. Mauris quis metus sit amet elit.
-                    </Description>
+                    <Title>{data.title}</Title>
+                    <Description>{data.description}</Description>
                     <ButtonContainer>
-                        <DemoButton />
-                        <GitHubButton />
+                        {
+                            data.demo ?
+                            <DemoButton href={data.demo} target="_blank" rel="noopener noreferrer">
+                                <DemoText>{ data.demoText }</DemoText>
+                            </DemoButton>
+                            :
+                            <></>
+                        }
+                        {
+                            data.github ?
+                            <GitHubButton href={data.github} target="_blank" rel="noopener noreferrer">
+                                <GithubLogo />
+                                <GithubText>
+                                    GitHub
+                                </GithubText>
+                            </GitHubButton>
+                            :
+                            <></>
+                        }
                     </ButtonContainer>
                 </TextContainer>
             </TextSection>
-            <RelatedBlogsSection>
-                <ExtraBlogsTitle>Related Blogs</ExtraBlogsTitle>
-                <ExtraBlogsContainer>
-                    <ExtraBlog></ExtraBlog>
-                    <ExtraBlog></ExtraBlog>
-                </ExtraBlogsContainer>
-            </RelatedBlogsSection>
+            { data.blogs.length !== 0 ?
+                <RelatedBlogsSection>
+                    <ExtraBlogsTitle>Related Blogs</ExtraBlogsTitle>
+                    <ExtraBlogsContainer>
+                        {
+                            data.blogs.map((id: number) => {
+
+                                let blog = blogData.blogs.find((blog) => blog.id === id)
+
+                                return (
+                                    <ExtraBlog>
+                                        <ShadowOverlay />
+                                        <ScreenOverlay />
+                                        <BlogImage src={"/assets/thumbnails/blogs/" + blog.id + "/0.png"}></BlogImage>
+                                        <BlogNameSection>
+                                            <BlogNameContainer onClick={() => navigate("/blogs/" + blog.id)}>
+                                                <BlogTitle>{blog.title}</BlogTitle>
+                                                <BlogSubtitle>{blog.subtitle}</BlogSubtitle>
+                                            </BlogNameContainer>
+                                        </BlogNameSection>
+                                    </ExtraBlog>
+                                )
+                            })    
+                        }
+                    </ExtraBlogsContainer>
+                </RelatedBlogsSection>
+                : <></>
+            }
         </PageStructure>
      );
 }

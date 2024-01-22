@@ -10,13 +10,25 @@ const ButtonContainer = styled(animated.div)`
     cursor: pointer;
 `
 
-const ImageContainer = styled.div`
-    background: purple;
+const ImageContainer = styled.div<{ portrait: boolean }>`
     height: 100%;
+    width: 100%;
     border-radius: 6px;
+
+    overflow: clip;
+
+    display: flex;
+    align-items: ${props => props.portrait ? "center" : "flex-end"};
 `
 
-const Button = ({id, name}) => {
+const Image = styled.img<{ portrait: boolean }>`
+    width: 100%;
+    border-radius: 6px;
+
+    object-fit: contain;
+`
+
+const Button = ({data, setActivePicture}) => {
 
     const [buttonAnimation, buttonApi] = useSpring(() => ({
 		from: {
@@ -30,18 +42,20 @@ const Button = ({id, name}) => {
                 opacity: 1,
             },
             config: {
-                mass: 1,
+                mass: 5,
                 friction: 60,
-                tension: 80
+                tension: 40
             },
-            delay: 1400 + (id * 350)
+            delay: (800 + (data.id * 500))
         })
     }, [])
 
-    return (
-        <ButtonContainer style={buttonAnimation}>
-            <ImageContainer>
+    console.log(data)
 
+    return (
+        <ButtonContainer style={buttonAnimation} onClick={() => setActivePicture(data)}>
+            <ImageContainer portrait={data.portrait}>
+                <Image portrait={data.portrait} src={data.url} />
             </ImageContainer>
         </ButtonContainer>
      );

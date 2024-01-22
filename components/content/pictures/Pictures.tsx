@@ -1,46 +1,47 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import Button from "./Button";
+import Picture from "./Picture";
 
 const PageStructure = styled.main`
     display: grid;
-    grid-template-rows: minmax(200px, 25vw) auto;
+    grid-template-rows: min-content auto;
+    margin-top: 21vh;
+    row-gap: 15px;
+    padding: 0 2vw;
+    overflow: scroll;
+    box-sizing: border-box;
+    width: 100vw;
+    max-width: 100vw;
 `
 
 const TitleSection = styled.div`
     grid-row: 1 / 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin-top: max(50px, 5vw);
 `
 
 const TitleContainer = styled.div`
     height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
     overflow: clip;
 `
 
 const Title = styled(animated.h1)`
     font-family: Josefin Sans;
-    font-size: max(42pt, 11vw);
-    color: white;
-    margin: 0px 0px 0px 20px;
+    font-size: 11.4vw;
+    color: ${props => props.theme.colors.white};
+    margin: 0 0;
 `
 
 const ButtonSection = styled.div`
     grid-row: 2 / 3;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin: 20px 20px 60px 20px;
-    gap: 20px;
+    gap: 1vw;
+    box-sizing: border-box;
 `
 
-const Blogs = () => {
+const Pictures = ({ data, activePicture, setActivePicture }) => {
     const [textIntroAnimation, textIntroApi] = useSpring(() => ({
 		from: {
 			opacity: 0,
@@ -71,16 +72,16 @@ const Blogs = () => {
                 </TitleContainer>
             </TitleSection>
             <ButtonSection>
-                <Button id={0} name={"brutusmaps"} />
-                <Button id={1} name={"brutusforce"} />
-                <Button id={2} name={"brutusforce"} />
-                <Button id={3} name={"brutusforce"} />
-                <Button id={4} name={"brutusforce"} />
-                <Button id={5} name={"brutusforce"} />
-                <Button id={6} name={"brutusforce"} />
+                {
+                    data.pictures.map((picture) => {
+                        return (
+                            <Button data={picture} setActivePicture={setActivePicture}/>
+                        )
+                    })
+                }
             </ButtonSection>
         </PageStructure>
      );
 }
  
-export default Blogs;
+export default Pictures;

@@ -4,40 +4,41 @@ import styled from "styled-components";
 import Button from "./Button";
 
 const PageStructure = styled.main`
-    grid-row: 2 / 3;
     display: grid;
-    grid-template-rows: minmax(100px, 24vw) auto;
+    grid-template-rows: min-content auto;
+    margin-top: 21vh;
+    row-gap: 15px;
 `
 
 const TitleSection = styled.div`
     grid-row: 1 / 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
 `
 
 const TitleContainer = styled.div`
     height: 100%;
+    overflow: clip;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+    align-items: flex-end;
+    justify-content: center;
+
     overflow: clip;
 `
 
 const Title = styled(animated.h1)`
     font-family: Josefin Sans;
     font-size: 11.4vw;
-    color: white;
+    color: ${props => props.theme.colors.white};
     margin: 0 0;
 `
 
 const ButtonSection = styled.div`
     grid-row: 2 / 3;
     display: grid;
+    width: 100%;
     grid-template-columns: 1fr 1fr;
-    margin: 20px 20px 60px 20px;
-    gap: 20px;
+    padding: 0 2vw;
+    box-sizing: border-box;
+    column-gap: 2vw;
 `
 
 const Home = ({}) => {

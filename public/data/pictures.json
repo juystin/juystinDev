@@ -1,0 +1,36 @@
+{
+    "pictures": [
+        {
+            "id": 0,
+            "url": "/assets/pictures/0.png",
+            "date": "2024 JAN 02",
+            "location": "Tiên Sơn Đỉnh",
+            "description": "The tallest peak in Phú Quốc, Vietnam. Local folklore is that a monk used to live atop the mountain, only making his way down to leave firewood for the people. In return, the people would leave food and other goods for the monk. One day, they realized that the monk had not come down the mountain on his typical routine. They journeyed up the mountain, and saw that he had peacefully passed. Before he had died, he had dug a grave at the peak to be buried in. Today, a new monk stays at the mountain peak. He carries up a package of water bottles to the mountain every morning to hand out to weary travellers, and offers hand-woven hammocks to rest in. In return, travellers give him offerings as signs of gratitude. Though I'm not sure how legit this one is, as I overheard him scrolling TikTok!",
+            "portrait": true
+        },
+        {
+            "id": 1,
+            "url": "/assets/pictures/1.png",
+            "date": "2023 OCT 13",
+            "location": "PNC Arena",
+            "description": "Travis Scott, UTOPIA tour.",
+            "portrait": true
+        },
+        {
+            "id": 2,
+            "url": "/assets/pictures/2.png",
+            "date": "2023 AUG 16",
+            "location": "Del Cerro Park",
+            "description": "Del Cerro Park, situated in south LA. It is one of the highest points of elevation in Los Angeles, falling short of only the Santa Monica and San Gabriel mountains. It offers a breathtaking view of the southern coast and Santa Catalina island.",
+            "portrait": true
+        },
+        {
+            "id": 3,
+            "url": "/assets/pictures/3.png",
+            "date": "2020 OCT 16",
+            "location": "Ohio Stadium",
+            "description": "The Shoe. Go Bucks!",
+            "portrait": true
+        }
+    ]
+}
