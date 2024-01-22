@@ -1,0 +1,70 @@
+{
+    "projects": [
+        {
+            "id": 0,
+            "short": "brutusmaps",
+            "title": "BrutusMaps",
+            "description": "A full stack web application mapping out all classrooms on Ohio State's main campus. Allows users to easily visualize classroom locations, classroom availability, and information about classes and instructors.",
+            "image_urls": [
+                "assets/thumbnails/projects/brutusmaps/0.png",
+                "assets/thumbnails/projects/brutusmaps/1.png",
+                "assets/thumbnails/projects/brutusmaps/2.png",
+                "assets/thumbnails/projects/brutusmaps/3.png"
+            ],
+            "blogs": [
+                0
+            ],
+            "demo": "https://www.brutusmaps.org",
+            "demoText": "Visit website"
+        },
+        {
+            "id": 1,
+            "short": "car-identifier",
+            "title": "Non-LPR Car Identification Algorithm",
+            "description": "Funded capstone project under CampusParc. A script that utilizes machine-learning detection and classification image recognition models to identify cars.",
+            "image_urls": [
+                "assets/thumbnails/projects/car-identifier/0.png"
+            ],
+            "blogs": [
+                
+            ]
+        },
+        {
+            "id": 2,
+            "short": "brutusforce",
+            "title": "BrutusForce",
+            "description": "API scraper library for classes, classrooms, buildings, libraries, and instructors for Ohio State's main campus.",
+            "image_urls": [
+                "assets/thumbnails/projects/brutusforce/0.png"
+            ],
+            "blogs": [
+
+            ],
+            "github": "https://github.com/juystin/BrutusForceRedux"
+        },
+        {
+            "id": 3,
+            "short": "microcontroller",
+            "title": "Temperature-Reading and Voltage-Ramping Microcontroller",
+            "description": "Project for Embedded Programming course. A microcontroller capable of sensing environmental temperature, and amplifying an input signal by a specified degree.",
+            "image_urls": [
+                "assets/thumbnails/projects/microcontroller/0.png"
+            ],
+            "blogs": [
+                
+            ]
+        },
+        {
+            "id": 4,
+            "short": "bugsworld",
+            "title": "BugsWorld Programming Language",
+            "description": "Project for Data Structures & Algorithms course. A custom programming language for a game called BugsWorld.",
+            "image_urls": [
+                "assets/thumbnails/projects/bugsworld/0.png"
+            ],
+            "blogs": [
+                
+            ]
+        }
+    ]
+}

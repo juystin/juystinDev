@@ -8,9 +8,19 @@
   "dependencies": {
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-markdown": "^9.0.1",
+    "react-router-dom": "^6.17.0",
+    "react-spring": "^9.7.2",
+    "styled-components": "^6.0.8",
+    "swr": "^2.2.4"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.5",
+    "@types/react": "^18.2.22",
+    "typescript": "^5.2.2"
   }
 }
