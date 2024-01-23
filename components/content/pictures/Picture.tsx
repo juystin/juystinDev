@@ -1,4 +1,3 @@
-import Markdown from "react-markdown";
 import styled from "styled-components";
 
 const Modal = styled.div`
@@ -8,7 +7,7 @@ const Modal = styled.div`
     z-index: 3;
 
     height: 100dvh;
-    width: 100dvw;
+    width: 100vw;
 
     display: flex;
     flex-direction: column;
@@ -41,12 +40,12 @@ const ImageSection = styled.div`
 `
 
 const ImageContainer = styled.div<{ portrait: boolean }>`
-    width: ${props => props.portrait ? "30%" : "60%"};
-    height: ${props => props.portrait ? "auto" : "auto"};
-
     display: grid;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto min-content auto;
     gap: 2px;
+
+    width: ${props => props.portrait ? "30%" : "40%"};
+    height: auto;
 
     pointer-events: auto;
 `
@@ -54,32 +53,34 @@ const ImageContainer = styled.div<{ portrait: boolean }>`
 const Image = styled.img`
     grid-row: 2 / 3;
 
-    width: 100%;
-    height: 100%;
+    max-width:100%;
+    max-height:100%;
 `
 
 const DateLocationContainer = styled.div`
     grid-row: 1 / 2;
 
-    width: 100%;
+    height: 100%;
 
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 `
 
 const Location = styled.span`
-    font-family: system-ui;
+    font-family: Roboto;
     color: ${props => props.theme.colors.white};
-    font-family: system-ui;
     font-size: 11pt;
-    font-weight: 250;
+    font-weight: 50;
+    text-align: left;
 `
 
 const Date = styled.span`
     color: ${props => props.theme.colors.white};
-    font-family: system-ui;
+    font-family: Roboto;
     font-size: 11pt;
-    font-weight: 250;
+    font-weight: 50;
+    text-align: right;
 `
 
 const Description = styled.p`
@@ -87,13 +88,13 @@ const Description = styled.p`
     color: ${props => props.theme.colors.white};
 
     height: auto;
-    max-height: 100px;
+    max-height: 70px;
 
     overflow: scroll;
 
-    font-family: system-ui;
+    font-family: Roboto;
     font-size: 9pt;
-    font-weight: 250;
+    font-weight: 50;
 
     text-align: justify;
 

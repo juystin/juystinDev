@@ -6,8 +6,10 @@ import Paragraph from "./Paragraph";
 const PageStructure = styled.main`
     display: grid;
     grid-template-rows: auto auto auto;
-    row-gap: 60px;
-    margin: 0 4vw;
+    row-gap: 30px;
+    padding: 0 2vw;
+
+    margin-top: 75px;
 `
 
 const BlogHeaderSection = styled.div`
@@ -15,7 +17,6 @@ const BlogHeaderSection = styled.div`
 
 const TitleSection = styled.div`
     grid-row: 1 / 2;
-    margin-top: max(50px, 5vw);
 
     display: grid;
     grid-template-rows: auto auto;
@@ -30,8 +31,9 @@ const TitleContainer = styled.div`
 `
 
 const Title = styled(animated.h1)`
-    font-family: system-ui;
+    font-family: Raleway;
     font-size: max(42pt, 6vw);
+    font-weight: 650;
     color: ${props => props.theme.colors.white};
 
     margin: 0 0;
@@ -54,8 +56,9 @@ const SubtitleContainer = styled.div`
 `
 
 const Subtitle = styled(animated.h2)`
-    font-family: system-ui;
+    font-family: Raleway;
     font-size: max(30pt, 4vw);
+    font-weight: 650;
     color: ${props => props.theme.colors.white};
 
     margin: 0 0;
@@ -73,8 +76,9 @@ const DateContainer = styled.div`
 `
 
 const Date = styled(animated.h2)`
-    font-family: system-ui;
+    font-family: Roboto;
     font-size: max(20pt, 2.5vw);
+    font-weight: 450;
     color: ${props => props.theme.colors.white};
 
     margin: 0 0;

@@ -3,12 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 
+import Image from "next/image";
+
 const ButtonContainer = styled(animated.div)`
-    display: flex;
     width: 100%;
     height: auto;
     aspect-ratio: 5 / 2;
+
+    display: flex;
     flex-direction: column;
+
     cursor: pointer;
 `
 
@@ -26,9 +30,10 @@ const ButtonName = styled.h1`
     color: ${props => props.theme.colors.white};
     text-transform: capitalize;
     font-family: Raleway;
+    font-weight: 500;
 `
 
-const Image = styled.img`
+const StyledImage = styled(Image)`
     width: 100%;
 `
 
@@ -59,7 +64,13 @@ const Button = ({id, name}) => {
     return ( 
         <ButtonContainer style={buttonAnimation} onClick={() => navigate("/" + name)}>
             <ImageContainer index={id}>
-                <Image src={"/assets/thumbnails/home/" + name + ".png"} />
+                <StyledImage 
+                    alt={name}
+                    src={"/assets/thumbnails/home/" + name + "-1920.png"}
+                    layout="responsive"
+                    width={1920}
+                    height={768}
+                />
             </ImageContainer>
             <ButtonName>{name}</ButtonName>
         </ButtonContainer>

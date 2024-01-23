@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { animated, useSpring } from "react-spring";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Image from "next/image";
 
 const ButtonContainer = styled(animated.div)`
     display: flex;
@@ -14,7 +15,7 @@ const ButtonContainer = styled(animated.div)`
     position: relative;
 `
 
-const ImageContainer = styled.div`
+const ImageContainer = styled(animated.div)`
     background: ${props => props.theme.colors.scarlet};
     height: 100%;
     border-radius: 6px;
@@ -48,11 +49,6 @@ const ScreenOverlay = styled.div`
     opacity: 0.4;
 `
 
-const Image = styled(animated.img)`
-    height: 100%;
-    width: 100%;
-`
-
 const BlogNameSection = styled.div`
     width: 100%;
     height: 100%;
@@ -73,7 +69,7 @@ const BlogNameContainer = styled.div`
 
 const BlogTitle = styled.h1`
     color: ${props => props.theme.colors.white};
-    font-family: system-ui;
+    font-family: Raleway;
 
     font-size: 36pt;
 
@@ -82,11 +78,18 @@ const BlogTitle = styled.h1`
 
 const BlogSubtitle = styled.h2`
     color: ${props => props.theme.colors.white};
-    font-family: system-ui;
+    font-family: Raleway;
 
     font-size: 24pt;
 
     margin: 0 0;
+`
+
+const StyledImage = styled(Image)`
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
 `
 
 const Button = ({data}) => {
@@ -118,7 +121,13 @@ const Button = ({data}) => {
             <ShadowOverlay />
             <ScreenOverlay />
             <ImageContainer>
-                <Image src={"assets/thumbnails/blogs/" + data.id + "/0.png"} alt={data.id} />
+                <StyledImage 
+                    src={"/assets/thumbnails/blogs/" + data.id + "/0.png"} 
+                    alt={data.title + ": " + data.subtitle}
+                    
+                    width={1920}
+                    height={274}
+                />
             </ImageContainer>
             <BlogNameSection>
                 <BlogNameContainer>

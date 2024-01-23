@@ -10,9 +10,12 @@ export interface ParagraphProps {
 
 const ParagraphStyled = styled(animated.p)`
     color: white;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 24px;
     text-align: justify;
+
+    font-family: Roboto;
+    font-weight: 300;
 `
 
 const Container = styled(animated.div)`

@@ -22,7 +22,7 @@ import { useState } from 'react';
 
 const DepthLayout = styled.div`
 	display: grid;
-	grid-template-rows: min-content;
+	grid-template-rows: min-content auto;
 
 	position: relative;
 `
@@ -32,11 +32,16 @@ const PageLayout = styled.div`
 	grid-column: 1 / 2;
 
 	display: grid;
-	grid-template-rows: 75px auto 50px;
+	grid-template-rows: 90px auto 50px;
 
 	min-height: 100vh;
+	max-width: 100%;
+
+	box-sizing: border-box;
 
 	z-index: 1;
+
+	padding: 0vw 2vw;
 `
 
 export default function App() {

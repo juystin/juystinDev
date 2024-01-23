@@ -6,9 +6,9 @@ import Button from "./Button"
 const PageStructure = styled.main`
     display: grid;
     grid-template-rows: min-content auto;
-    margin-top: 21vh;
     row-gap: 15px;
-    padding: 0 2vw;
+
+    margin-top: 75px;
 `
 
 const TitleSection = styled.div`
@@ -29,10 +29,15 @@ const Title = styled(animated.h1)`
 
 const ButtonSection = styled.div`
     grid-row: 2 / 3;
-    display: grid;
+
     width: 100%;
+
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1vw;
+    grid-auto-rows: min-content;
+
+    gap: 2vw;
+
     box-sizing: border-box;
 `
 

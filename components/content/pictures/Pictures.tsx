@@ -1,19 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import Button from "./Button";
-import Picture from "./Picture";
 
 const PageStructure = styled.main`
     display: grid;
     grid-template-rows: min-content auto;
-    margin-top: 21vh;
     row-gap: 15px;
-    padding: 0 2vw;
-    overflow: scroll;
-    box-sizing: border-box;
-    width: 100vw;
-    max-width: 100vw;
+
+    margin-top: 75px;
 `
 
 const TitleSection = styled.div`
@@ -35,9 +30,15 @@ const Title = styled(animated.h1)`
 
 const ButtonSection = styled.div`
     grid-row: 2 / 3;
+
+    width: 100%;
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: min-content;
+
     gap: 1vw;
+
     box-sizing: border-box;
 `
 

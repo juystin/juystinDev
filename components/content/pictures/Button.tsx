@@ -1,11 +1,13 @@
+import Image from "next/image";
 import { useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 
 const ButtonContainer = styled(animated.div)`
-    display: flex;
     width: 100%;
     aspect-ratio: 1 / 1;
+
+    display: flex;
     flex-direction: column;
     cursor: pointer;
 `
@@ -18,14 +20,14 @@ const ImageContainer = styled.div<{ portrait: boolean }>`
     overflow: clip;
 
     display: flex;
-    align-items: ${props => props.portrait ? "center" : "flex-end"};
+    align-items: ${props => props.portrait ? "center" : "flex-start"};
 `
 
-const Image = styled.img<{ portrait: boolean }>`
+const StyledImage = styled(Image)`
     width: 100%;
-    border-radius: 6px;
+    height: 100%;
 
-    object-fit: contain;
+    border-radius: 6px;
 `
 
 const Button = ({data, setActivePicture}) => {
@@ -50,12 +52,16 @@ const Button = ({data, setActivePicture}) => {
         })
     }, [])
 
-    console.log(data)
-
     return (
         <ButtonContainer style={buttonAnimation} onClick={() => setActivePicture(data)}>
             <ImageContainer portrait={data.portrait}>
-                <Image portrait={data.portrait} src={data.url} />
+                <StyledImage 
+                    alt={data.location + " | " + data.date}
+                    src={data.url}
+                    height={data.height}
+                    width={data.width}
+                    layout="responsive"
+                />
             </ImageContainer>
         </ButtonContainer>
      );

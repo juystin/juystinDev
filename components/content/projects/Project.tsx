@@ -9,7 +9,8 @@ const PageStructure = styled.main`
     grid-template-rows: auto auto;
     row-gap: 40px;
     column-gap: 20px;
-    margin: 80px 20px 60px 20px;
+
+    margin-top: 75px;
 `
 
 const ImageSection = styled.div`
@@ -55,12 +56,16 @@ const Title = styled.h1`
     width: 100%;
     margin-top: -12px;
     font-size: 36pt;
+    font-family: Raleway;
+    font-weight: 700;
 `
 
 const Description = styled.p`
     color: ${props => props.theme.colors.white};
     width: 100%;
     margin-top: -24px;
+    font-family: Roboto;
+    font-weight: 300;
 `
 
 const RelatedBlogsSection = styled.div`
@@ -119,10 +124,11 @@ const DemoButton = styled.a`
 `
 
 const DemoText = styled.span`
-    font-family: system-ui;
+    font-family: Roboto;
     font-size: 18pt;
 
     text-transform: uppercase;
+    letter-spacing: 0.75px;
 
     font-weight: 300;
 
@@ -142,7 +148,7 @@ const GitHubButton = styled.a`
 `
 
 const GithubText = styled.span`
-    font-family: system-ui;
+    font-family: Roboto;
     font-size: 18pt;
 
     text-transform: uppercase;
@@ -213,18 +219,20 @@ const BlogNameContainer = styled.div`
 
 const BlogTitle = styled.h1`
     color: ${props => props.theme.colors.white};
-    font-family: system-ui;
+    font-family: Raleway;
 
     font-size: 28pt;
+    text-align: center;
 
     margin: 0 0;
 `
 
 const BlogSubtitle = styled.h2`
     color: ${props => props.theme.colors.white};
-    font-family: system-ui;
+    font-family: Raleway;
 
     font-size: 16pt;
+    text-align: center;
 
     margin: 0 0 0 0;
 `

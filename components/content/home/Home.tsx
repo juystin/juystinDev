@@ -6,17 +6,23 @@ import Button from "./Button";
 const PageStructure = styled.main`
     display: grid;
     grid-template-rows: min-content auto;
-    margin-top: 21vh;
     row-gap: 15px;
+
+    width: 100%;
+
+    margin-top: 75px;
 `
 
 const TitleSection = styled.div`
     grid-row: 1 / 2;
+
+    width: 100%;
 `
 
 const TitleContainer = styled.div`
     height: 100%;
-    overflow: clip;
+    width: 100%;
+
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -26,19 +32,26 @@ const TitleContainer = styled.div`
 
 const Title = styled(animated.h1)`
     font-family: Josefin Sans;
-    font-size: 11.4vw;
+    
+    font-size: 11vw;
+
     color: ${props => props.theme.colors.white};
+    
     margin: 0 0;
 `
 
 const ButtonSection = styled.div`
     grid-row: 2 / 3;
-    display: grid;
+
     width: 100%;
+
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0 2vw;
+    grid-auto-rows: min-content;
+
+    gap: 2vw;
+
     box-sizing: border-box;
-    column-gap: 2vw;
 `
 
 const Home = ({}) => {
