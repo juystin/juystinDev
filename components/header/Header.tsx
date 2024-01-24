@@ -7,6 +7,7 @@ import MenuLogo from "./MenuLogo";
 import { device } from "../../styles/devices";
 import { useEffect, useState } from "react";
 import XLogo from "./XLogo";
+import Link from "next/link";
 
 const HeaderSection = styled.div`
     width: 100%;
@@ -116,9 +117,11 @@ const VerticalNavContainer = styled.nav`
     }
 `
 
-const NavButton = styled.a`
+const NavButton = styled.span`
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 250;
     color: ${props => props.theme.colors.white};
-    text-decoration: none;
     cursor: pointer;
 `
 
@@ -138,7 +141,7 @@ const SideButtonContainer = styled.div`
     }
 `
 
-const GithubButton = styled.a`
+const GithubButton = styled(Link)`
     height: 100%;
     width: 100%;
 

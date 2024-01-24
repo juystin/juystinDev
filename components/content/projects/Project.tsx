@@ -3,6 +3,7 @@ import blogData from "../../../public/data/blogs.json"
 import { useNavigate } from "react-router-dom";
 import GithubLogo from "../../header/GithubLogo";
 import { device } from "../../../styles/devices";
+import Link from "next/link";
 
 const PageStructure = styled.main`
     display: flex;
@@ -202,7 +203,7 @@ const ButtonContainer = styled.div`
     width: 100%;
 `
 
-const DemoButton = styled.a`
+const DemoButton = styled(Link)`
     height: 80px;
     width: 100%;
     border-radius: 6px;
@@ -226,7 +227,7 @@ const DemoText = styled.span`
     color: ${props => props.theme.colors.white};
 `
 
-const GitHubButton = styled.a`
+const GitHubButton = styled(Link)`
     height: 80px;
     width: 100%;
     border-radius: 6px;
