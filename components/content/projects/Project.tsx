@@ -114,10 +114,12 @@ const TextContainer = styled.div`
     @media ${device.laptop} {
         height: 450px;
 
+        margin-top: -10px;
+
         gap: 0px;
 
         position: sticky;
-        top: 40px;
+        top: 30px;
 
         justify-content: space-between;
     }

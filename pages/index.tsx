@@ -44,7 +44,6 @@ const PageLayout = styled.div`
 	padding: 0 20px;
 
 	overflow-x: clip;
-	overflow-y: scroll;
 
 	@media ${device.tablet} {
 		grid-template-rows: 90px auto 50px;
