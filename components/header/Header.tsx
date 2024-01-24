@@ -218,7 +218,7 @@ const Header = ({}) => {
                     <NavButton onClick={() => navigate("/pictures")}>Pictures</NavButton>
                 </NavContainer>
                 <SideButtonContainer>
-                    <GithubButton>
+                    <GithubButton href={"https://www.github.com/juystin"} target="_blank" rel="noopener noreferrer">
                         <GithubLogo />
                     </GithubButton>
                     <MenuButton onClick={() => {

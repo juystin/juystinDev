@@ -10,8 +10,6 @@ const Styled = styled.svg`
 `
 
 const GithubLogo = ({}) => {
-
-    const navigate = useNavigate();
   
     return (
       <Styled xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
