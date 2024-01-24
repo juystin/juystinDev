@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import Button from "./Button";
+import { device } from "../../../styles/devices";
 
 const PageStructure = styled.main`
     display: grid;
     grid-template-rows: min-content auto;
-    row-gap: 15px;
+    row-gap: 35px;
 
     margin-top: 75px;
 `
@@ -34,12 +35,16 @@ const ButtonSection = styled.div`
     width: 100%;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-auto-rows: min-content;
 
-    gap: 1vw;
+    gap: 10px;
 
     box-sizing: border-box;
+
+    @media ${device.tablet} {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 `
 
 const Pictures = ({ data, activePicture, setActivePicture }) => {

@@ -28,20 +28,16 @@ const DepthLayout = styled.div`
 `
 
 const PageLayout = styled.div`
-	grid-row: 1 / 2;
-	grid-column: 1 / 2;
-
-	display: grid;
-	grid-template-rows: 90px auto 50px;
-
-	min-height: 100vh;
-	max-width: 100%;
+	min-height: 100dvh;
+	width: auto;
 
 	box-sizing: border-box;
 
 	z-index: 1;
 
-	padding: 0vw 2vw;
+	padding: 0 20px;
+
+	overflow-x: clip;
 `
 
 export default function App() {

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../../styles/devices";
 
 const Modal = styled.div`
     grid-row: 1 / 2;
@@ -44,10 +45,14 @@ const ImageContainer = styled.div<{ portrait: boolean }>`
     grid-template-rows: auto min-content auto;
     gap: 2px;
 
-    width: ${props => props.portrait ? "30%" : "40%"};
+    width: ${props => props.portrait ? "80%" : "80%"};
     height: auto;
 
     pointer-events: auto;
+
+    @media ${device.tablet} {
+        width: ${props => props.portrait ? "30%" : "40%"};
+    }
 `
 
 const Image = styled.img`

@@ -7,7 +7,7 @@ body {
     Roboto,
     Raleway,
     Josefin Sans;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   border: 0;
   overflow-x: clip;

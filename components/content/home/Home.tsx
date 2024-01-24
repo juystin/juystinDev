@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import Button from "./Button";
+import { device } from "../../../styles/devices";
 
 const PageStructure = styled.main`
     display: grid;
     grid-template-rows: min-content auto;
-    row-gap: 15px;
+    row-gap: 35px;
 
     width: 100%;
 
@@ -33,7 +34,7 @@ const TitleContainer = styled.div`
 const Title = styled(animated.h1)`
     font-family: Josefin Sans;
     
-    font-size: 11vw;
+    font-size: 10vw;
 
     color: ${props => props.theme.colors.white};
     
@@ -45,13 +46,18 @@ const ButtonSection = styled.div`
 
     width: 100%;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: min-content;
+    display: flex;
+    flex-direction: column;
 
-    gap: 2vw;
+    gap: 20px;
 
     box-sizing: border-box;
+
+    @media ${device.tablet} {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: min-content;
+    }
 `
 
 const Home = ({}) => {

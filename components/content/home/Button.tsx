@@ -4,6 +4,7 @@ import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 
 import Image from "next/image";
+import { device } from "../../../styles/devices";
 
 const ButtonContainer = styled(animated.div)`
     width: 100%;
@@ -17,12 +18,14 @@ const ButtonContainer = styled(animated.div)`
 `
 
 const ImageContainer = styled.div<{ index: number }>`
-    background: ${props => props.index % 4 === 0 ? props.theme.colors.white : props.index % 4 === 3 ? props.theme.colors.white : props.theme.colors.black};
+    background: ${props => props.index % 2 === 0 ? props.theme.colors.white : props.theme.colors.black};
     max-height: 100%;
     max-width: 100%;
     border-radius: 6px;
 
-    overflow: clip;
+    @media ${device.tablet} {
+        background: ${props => props.index % 4 === 0 ? props.theme.colors.white : props.index % 4 === 3 ? props.theme.colors.white : props.theme.colors.black};
+    }
 `
 
 const ButtonName = styled.h1`

@@ -6,7 +6,7 @@ import Button from "./Button";
 const PageStructure = styled.main`
     display: grid;
     grid-template-rows: min-content auto;
-    row-gap: 15px;
+    row-gap: 35px;
 
     margin-top: 75px;
 `
@@ -36,7 +36,7 @@ const ButtonSection = styled.div`
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
 
-    gap: 2vw;
+    gap: 20px;
 
     box-sizing: border-box;
 `

@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 const FooterSection = styled.div`
-    grid-row: 3 / 4;
+    height: 50px;
 
-    height: 100%;
-
+    
     display: flex;
     align-items: center;
     justify-content: flex-end;

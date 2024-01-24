@@ -3,19 +3,24 @@ import { useNavigate } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import Image from "next/image";
+import { device } from "../../../styles/devices";
 
 const Container = styled(animated.div)<{ index: number }>`
     width: 100%;
     height: auto;
     aspect-ratio: 5 / 3;
 
-    background: ${props => props.index % 4 === 0 ? props.theme.colors.white : props.index % 4 === 3 ? props.theme.colors.white : props.theme.colors.black};
-    
     border-radius: 6px;
     
     overflow: clip;
     
     cursor: pointer;
+
+    background: ${props => props.index % 2 === 0 ? props.theme.colors.white : props.theme.colors.black};
+
+    @media ${device.tablet} {
+        background: ${props => props.index % 4 === 0 ? props.theme.colors.white : props.index % 4 === 3 ? props.theme.colors.white : props.theme.colors.black};
+    }
 `
 
 const Thumbnail = styled(Image)`

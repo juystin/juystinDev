@@ -2,30 +2,67 @@ import styled from "styled-components";
 import blogData from "../../../public/data/blogs.json"
 import { useNavigate } from "react-router-dom";
 import GithubLogo from "../../header/GithubLogo";
+import { device } from "../../../styles/devices";
 
 const PageStructure = styled.main`
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto;
-    row-gap: 40px;
-    column-gap: 20px;
-
+    display: flex;
+    flex-direction: column;
     margin-top: 75px;
+
+    overflow-x: hidden;
+
+    @media ${device.tablet} {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto auto;
+
+        row-gap: 40px;
+        column-gap: 20px;
+
+        overflow: visible;
+    }
 `
 
 const ImageSection = styled.div`
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    display: grid;
-    row-gap: 20px;
+    height: 30vh;
+    overflow: scroll;
+
+    @media ${device.tablet} {
+        display: grid;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+
+        height: auto;
+    }
+`
+
+const ImageScroller = styled.div`
+    display: flex;
+    gap: 20px;
+
+    height: 100%;
+    width: fit-content;
+
+    padding: 8px 0;
+
+    box-sizing: border-box;
+
+    @media ${device.tablet} {
+        display: grid;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+
+        height: auto;
+        width: auto;
+
+        padding: 0 0;
+    }
 `
 
 const Image = styled.div<{ id: number }>`
-    display: flex;
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     aspect-ratio: 5 / 3;
-    flex-direction: column;
     border-radius: 6px;
     overflow: clip;
 
@@ -33,21 +70,35 @@ const Image = styled.div<{ id: number }>`
 `
 
 const TextSection = styled.div`
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    height: 100%;
+    height: auto;
     width: 100%;
+
+    margin-top: 50px;
+
+    @media ${device.tablet} {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+
+        margin-top: 0px;
+    }
 `
 
 const TextContainer = styled.div`
     width: 100%;
-    height: 450px;
+    height: auto;
+
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    justify-content: space-between;
-    position: sticky;
-    top: 40px;
+    gap: 50px;
+    
+    @media ${device.tablet} {
+        height: 450px;
+
+        position: sticky;
+        top: 40px;
+
+        justify-content: space-between;
+    }
 `
 
 const Title = styled.h1`
@@ -58,6 +109,15 @@ const Title = styled.h1`
     font-size: 36pt;
     font-family: Raleway;
     font-weight: 700;
+
+    @media ${device.tablet} {
+        height: 450px;
+
+        position: sticky;
+        top: 40px;
+
+        justify-content: space-between;
+    }
 `
 
 const Description = styled.p`
@@ -77,6 +137,12 @@ const RelatedBlogsSection = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+
+    margin-top: 25px;
+
+    @media ${device.tablet} {
+        margin-top: 0px;
+    }
 `
 
 const ExtraBlogsTitle = styled.h1`
@@ -244,14 +310,16 @@ const Project = ({data}) => {
     return ( 
         <PageStructure>
             <ImageSection>
-                { data.image_urls.map((url: string, index: number) => {
-                    return (
-                        <Image id={index}>
-                            <Thumbnail src={"/" + url} />
-                        </Image>
-                    )
-                    }
-                )}
+                <ImageScroller>
+                    { data.image_urls.map((url: string, index: number) => {
+                        return (
+                            <Image id={index}>
+                                <Thumbnail src={"/" + url} />
+                            </Image>
+                        )
+                        }
+                    )}
+                </ImageScroller>
             </ImageSection>
             <TextSection>
                 <TextContainer>
