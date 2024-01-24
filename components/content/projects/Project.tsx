@@ -7,11 +7,16 @@ import { device } from "../../../styles/devices";
 const PageStructure = styled.main`
     display: flex;
     flex-direction: column;
-    margin-top: 75px;
+
+    margin-top: 50px;
 
     overflow-x: hidden;
 
     @media ${device.tablet} {
+        margin-top: 75px;
+    }
+
+    @media ${device.laptop} {
         display: grid;
         grid-template-columns: 2fr 1fr;
         grid-template-rows: auto auto;
@@ -20,19 +25,27 @@ const PageStructure = styled.main`
         column-gap: 20px;
 
         overflow: visible;
+        margin-top: 75px;
     }
 `
 
 const ImageSection = styled.div`
-    height: 30vh;
+    height: max(29vh, 40vw);
     overflow: scroll;
 
     @media ${device.tablet} {
+        height: 40vh;
+    }
+
+    @media ${device.laptop} {
         display: grid;
         grid-column: 1 / 2;
         grid-row: 1 / 2;
 
         height: auto;
+        width: 100%;
+
+        overflow: clip;
     }
 `
 
@@ -47,7 +60,7 @@ const ImageScroller = styled.div`
 
     box-sizing: border-box;
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         display: grid;
         grid-column: 1 / 2;
         grid-row: 1 / 2;
@@ -60,8 +73,7 @@ const ImageScroller = styled.div`
 `
 
 const Image = styled.div<{ id: number }>`
-    width: auto;
-    height: 100%;
+    width: 100%;
     aspect-ratio: 5 / 3;
     border-radius: 6px;
     overflow: clip;
@@ -73,9 +85,13 @@ const TextSection = styled.div`
     height: auto;
     width: 100%;
 
-    margin-top: 50px;
+    margin-top: 16px;
 
     @media ${device.tablet} {
+        margin-top: 50px;
+	}
+
+    @media ${device.laptop} {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
 
@@ -89,10 +105,16 @@ const TextContainer = styled.div`
 
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    
+    gap: 0px;
+
     @media ${device.tablet} {
+        gap: 20px;
+    }
+    
+    @media ${device.laptop} {
         height: 450px;
+
+        gap: 0px;
 
         position: sticky;
         top: 40px;
@@ -105,27 +127,28 @@ const Title = styled.h1`
     color: ${props => props.theme.colors.white};
     text-transform: uppercase;
     width: 100%;
-    margin-top: -12px;
-    font-size: 36pt;
+    font-size: 16pt;
     font-family: Raleway;
     font-weight: 700;
 
-    @media ${device.tablet} {
-        height: 450px;
+    margin: 0 0;
 
-        position: sticky;
-        top: 40px;
-
-        justify-content: space-between;
-    }
+    @media ${device.tablet}, ${device.laptop} {
+        font-size: 36pt;
+	}
 `
 
 const Description = styled.p`
     color: ${props => props.theme.colors.white};
     width: 100%;
-    margin-top: -24px;
+
     font-family: Roboto;
     font-weight: 300;
+    font-size: 12pt;
+
+    @media ${device.tablet}, ${device.laptop} {
+        font-size: 13pt;
+	}
 `
 
 const RelatedBlogsSection = styled.div`
@@ -140,7 +163,7 @@ const RelatedBlogsSection = styled.div`
 
     margin-top: 25px;
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         margin-top: 0px;
     }
 `

@@ -2,14 +2,20 @@ import { useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import Paragraph from "./Paragraph";
+import { device } from "../../../styles/devices";
 
 const PageStructure = styled.main`
     display: grid;
     grid-template-rows: auto auto auto;
-    row-gap: 30px;
+    row-gap: 0px;
     padding: 0 2vw;
 
-    margin-top: 75px;
+    margin-top: 50px;
+
+    @media ${device.tablet}, ${device.laptop} {
+		row-gap: 30px;
+        margin-top: 75px;
+	}
 `
 
 const BlogHeaderSection = styled.div`
@@ -20,7 +26,11 @@ const TitleSection = styled.div`
 
     display: grid;
     grid-template-rows: auto auto;
-    row-gap: 0px;
+    row-gap: 4px;
+
+    @media ${device.tablet}, ${device.laptop} {
+		row-gap: 0px;
+	}
 `
 
 const TitleContainer = styled.div`
@@ -31,12 +41,21 @@ const TitleContainer = styled.div`
 `
 
 const Title = styled(animated.h1)`
-    font-family: Raleway;
-    font-size: max(42pt, 6vw);
-    font-weight: 650;
     color: ${props => props.theme.colors.white};
 
     margin: 0 0;
+
+    font-family: Raleway;
+    font-weight: 650;
+    font-size: 20pt;
+
+    @media ${device.tablet} {
+		font-size: 48pt;
+	}
+
+    @media ${device.laptop} {
+		font-size: 69pt;
+	}
 `
 
 const SubtitleSection = styled.div`
@@ -53,13 +72,25 @@ const SubtitleContainer = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+
+    text-align: left;
 `
 
 const Subtitle = styled(animated.h2)`
     font-family: Raleway;
-    font-size: max(30pt, 4vw);
     font-weight: 650;
+
     color: ${props => props.theme.colors.white};
+
+    font-size: 14pt;
+
+    @media ${device.tablet} {
+		font-size: 32pt;
+	}
+
+    @media ${device.laptop} {
+		font-size: 48pt;
+	}
 
     margin: 0 0;
 `
@@ -73,15 +104,27 @@ const DateContainer = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+
+    text-align: right;
 `
 
 const Date = styled(animated.h2)`
     font-family: Roboto;
-    font-size: max(20pt, 2.5vw);
     font-weight: 450;
+
     color: ${props => props.theme.colors.white};
 
     margin: 0 0;
+
+    font-size: 10pt;
+
+    @media ${device.tablet} {
+		font-size: 18pt;
+	}
+
+    @media ${device.laptop} {
+		font-size: 24pt;
+	}
 `
 
 const ContentContainer = styled.div`
@@ -94,8 +137,15 @@ const ImageSection = styled.div`
     display: flex;
     width: 100%;
     height: auto;
-    aspect-ratio: 7 / 1;
+    aspect-ratio: 5 / 1;
     flex-direction: column;
+
+    margin-top: 15px;
+    
+    @media ${device.tablet}, ${device.laptop} {
+		margin-top: 0px;
+        aspect-ratio: 7 / 1;
+	}
 `
 
 const ImageContainer = styled(animated.div)`
@@ -109,6 +159,12 @@ const ImageContainer = styled(animated.div)`
 const Image = styled.img`
     height: 100%;
     width: 100%;
+
+    object-fit: cover;
+
+    @media ${device.tablet}, ${device.laptop} {
+		object-fit: cover;
+	}
 `
 
 const Blog = ({data}) => {

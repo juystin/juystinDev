@@ -2,13 +2,18 @@ import { useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import Button from "./Button";
+import { device } from "../../../styles/devices";
 
 const PageStructure = styled.main`
     display: grid;
     grid-template-rows: min-content auto;
     row-gap: 35px;
 
-    margin-top: 75px;
+    margin-top: 50px;
+
+    @media ${device.tablet}, ${device.laptop} {
+        margin-top: 75px;
+	}
 `
 
 const TitleSection = styled.div`

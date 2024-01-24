@@ -3,16 +3,23 @@ import { animated, useSpring } from "react-spring";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Image from "next/image";
+import { device } from "../../../styles/devices";
 
 const ButtonContainer = styled(animated.div)`
     display: flex;
     width: 100%;
     height: auto;
-    aspect-ratio: 7 / 1;
+    aspect-ratio: 4 / 1;
     flex-direction: column;
     cursor: pointer;
 
     position: relative;
+
+    @media ${device.tablet}, ${device.laptop} {
+		width: 100%;
+        height: auto;
+        aspect-ratio: 7 / 1;
+	}
 `
 
 const ImageContainer = styled(animated.div)`
@@ -46,7 +53,7 @@ const ScreenOverlay = styled.div`
     position: absolute;
     z-index: 2;
 
-    opacity: 0.4;
+    opacity: 0.55;
 `
 
 const BlogNameSection = styled.div`
@@ -71,25 +78,42 @@ const BlogTitle = styled.h1`
     color: ${props => props.theme.colors.white};
     font-family: Raleway;
 
-    font-size: 36pt;
+    font-size: 18pt;
 
     margin: 0 0;
+
+    @media ${device.tablet} {
+		font-size: 28pt;
+	}
+
+    @media ${device.laptop} {
+		font-size: 36pt;
+	}
+
 `
 
 const BlogSubtitle = styled.h2`
     color: ${props => props.theme.colors.white};
     font-family: Raleway;
 
-    font-size: 24pt;
+    font-size: 12pt;
 
     margin: 0 0;
+
+    @media ${device.tablet} {
+		font-size: 20pt;
+	}
+
+    @media ${device.laptop} {
+		font-size: 28pt;
+	}
 `
 
 const StyledImage = styled(Image)`
     width: 100%;
     height: 100%;
 
-    object-fit: contain;
+    object-fit: cover;
 `
 
 const Button = ({data}) => {

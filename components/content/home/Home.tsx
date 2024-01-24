@@ -11,7 +11,11 @@ const PageStructure = styled.main`
 
     width: 100%;
 
-    margin-top: 75px;
+    margin-top: 50px;
+
+    @media ${device.tablet}, ${device.laptop} {
+        margin-top: 75px;
+	}
 `
 
 const TitleSection = styled.div`
@@ -53,7 +57,7 @@ const ButtonSection = styled.div`
 
     box-sizing: border-box;
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: min-content;

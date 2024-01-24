@@ -1,12 +1,18 @@
 import styled from "styled-components";
 import { device } from "../../../styles/devices";
 
-const Modal = styled.div`
+const PictureContainer = styled.div`
     grid-row: 1 / 2;
     grid-column: 1 / 2;
 
-    z-index: 3;
+    position: absolute;
+    z-index: 30;
 
+    height: 100%;
+    width: 100%;
+`
+
+const Modal = styled.div`
     height: 100dvh;
     width: 100vw;
 
@@ -16,20 +22,25 @@ const Modal = styled.div`
     justify-content: center;
 
     pointer-events: none;
+
+    position: absolute:
+    z-index: 41;
 `
 
 const Background = styled.div`
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
-
-    z-index: 2;
-
     background: black;
     opacity: 0.8;
+
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    z-index: 40;
 `
 
 const ImageSection = styled.div`
     position: fixed;
+    z-index: 43;
 
     width: 100%;
     height: 100%;
@@ -50,7 +61,7 @@ const ImageContainer = styled.div<{ portrait: boolean }>`
 
     pointer-events: auto;
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         width: ${props => props.portrait ? "30%" : "40%"};
     }
 `
@@ -93,7 +104,7 @@ const Description = styled.p`
     color: ${props => props.theme.colors.white};
 
     height: auto;
-    max-height: 70px;
+    max-height: 90px;
 
     overflow: scroll;
 
@@ -104,12 +115,20 @@ const Description = styled.p`
     text-align: justify;
 
     margin: 0 0;
+
+    @media ${device.tablet} {
+        max-height: 70px;
+    }
+
+    @media ${device.laptop} {
+        max-height: 70px;
+    }
 `
 
 const Picture = ({ activePicture, setActivePicture }) => {
 
     return (
-        <>
+        <PictureContainer>
             <Background onClick={() => setActivePicture(null)}/>
             <Modal>
                 <ImageSection>
@@ -125,8 +144,7 @@ const Picture = ({ activePicture, setActivePicture }) => {
                     </ImageContainer>
                 </ImageSection>
             </Modal>
-        </>
-        
+        </PictureContainer>
      );
 }
  

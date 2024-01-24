@@ -9,7 +9,11 @@ const PageStructure = styled.main`
     grid-template-rows: min-content auto;
     row-gap: 35px;
 
-    margin-top: 75px;
+    margin-top: 50px;
+
+    @media ${device.tablet}, ${device.laptop} {
+        margin-top: 75px;
+	}
 `
 
 const TitleSection = styled.div`
@@ -42,7 +46,7 @@ const ButtonSection = styled.div`
 
     box-sizing: border-box;
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         grid-template-columns: 1fr 1fr 1fr;
     }
 `

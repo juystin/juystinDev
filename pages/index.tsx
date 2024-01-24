@@ -18,69 +18,84 @@ import blogData from "../public/data/blogs.json"
 import pictureData from "../public/data/pictures.json"
 import GlobalTheme from '../styles/GlobalTheme';
 import Picture from '../components/content/pictures/Picture';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { device } from '../styles/devices';
 
 const DepthLayout = styled.div`
-	display: grid;
-	grid-template-rows: min-content auto;
-
 	position: relative;
+
+	grid-template-rows: 1fr;
 `
 
 const PageLayout = styled.div`
+	grid-row: 1 / 2;
+	grid-column: 1 / 2;
+
+	z-index: 1;
+
 	min-height: 100dvh;
 	width: auto;
 
-	box-sizing: border-box;
+	display: grid;
+	grid-template-rows: 90px auto 30px;
 
-	z-index: 1;
+	box-sizing: border-box;
 
 	padding: 0 20px;
 
 	overflow-x: clip;
+	overflow-y: scroll;
+
+	@media ${device.tablet} {
+		grid-template-rows: 90px auto 50px;
+	}
+
+	@media ${device.laptop} { 
+        grid-template-rows: 90px auto 50px;
+    }
 `
 
 export default function App() {
 
 	const [activePicture, setActivePicture] = useState(null);
 	
-  	return (
+	return (
 		<BrowserRouter>
 			<Head>
 				<title>juystin.dev</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<ScrollToTop />
-				<GlobalTheme>
-					<DepthLayout>
-						{ activePicture ? <Picture activePicture={activePicture} setActivePicture={setActivePicture}/> : <></> }
-						<PageLayout>
-							<Header />
-							<Routes>
-								<Route path="/*" element={<Error404 />} />
-								<Route path="/" element={<Home />} />
-								<Route path="/projects" element={<Projects data={projectData}/>} />
-								{ projectData.projects.map((project) => {
-									return (
-										<Route 
-											path={"/projects/" + project.short} 
-											element={<Project data={project}/>} />
-									)
-								}) }
-								<Route path="/blogs" element={<Blogs data={blogData}/>} />
-								{ blogData.blogs.map((blog) => {
-									return (
-										<Route 
-											path={"/blogs/" + blog.id} 
-											element={<Blog data={blog}/>} />
-									)
-								}) }
-								<Route path="/pictures" element={<Pictures data={pictureData} activePicture={activePicture} setActivePicture={setActivePicture}/>} />
-							</Routes>
-							<Footer />
-						</PageLayout>
-					</DepthLayout>
-				</GlobalTheme>
+			<GlobalTheme>
+				<DepthLayout>
+					{activePicture ? <Picture activePicture={activePicture} setActivePicture={setActivePicture} /> : <></>}
+					<PageLayout>
+						<Header />
+						<Routes>
+							<Route path="/*" element={<Error404 />} />
+							<Route path="/" element={<Home />} />
+							<Route path="/projects" element={<Projects data={projectData} />} />
+							{projectData.projects.map((project) => {
+								return (
+									<Route
+										path={"/projects/" + project.short}
+										element={<Project data={project} />} />
+								)
+							})}
+							<Route path="/blogs" element={<Blogs data={blogData} />} />
+							{blogData.blogs.map((blog) => {
+								return (
+									<Route
+										path={"/blogs/" + blog.id}
+										element={<Blog data={blog} />} />
+								)
+							})}
+							<Route path="/pictures" element={<Pictures data={pictureData} activePicture={activePicture} setActivePicture={setActivePicture} />} />
+						</Routes>
+						<Footer />
+					</PageLayout>
+				</DepthLayout>
+			</GlobalTheme>
 		</BrowserRouter>
-  	);
+	);
 }

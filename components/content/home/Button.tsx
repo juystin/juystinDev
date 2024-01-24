@@ -23,7 +23,7 @@ const ImageContainer = styled.div<{ index: number }>`
     max-width: 100%;
     border-radius: 6px;
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         background: ${props => props.index % 4 === 0 ? props.theme.colors.white : props.index % 4 === 3 ? props.theme.colors.white : props.theme.colors.black};
     }
 `

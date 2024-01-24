@@ -18,7 +18,7 @@ const Container = styled(animated.div)<{ index: number }>`
 
     background: ${props => props.index % 2 === 0 ? props.theme.colors.white : props.theme.colors.black};
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         background: ${props => props.index % 4 === 0 ? props.theme.colors.white : props.index % 4 === 3 ? props.theme.colors.white : props.theme.colors.black};
     }
 `

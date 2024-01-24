@@ -10,7 +10,6 @@ import XLogo from "./XLogo";
 
 const HeaderSection = styled.div`
     width: 100%;
-    height: 90px;
 
     display: flex;
     align-items: center;
@@ -86,7 +85,7 @@ const NavContainer = styled.nav`
 
     display: none;
 
-    @media ${device.tablet} { 
+    @media ${device.laptop} { 
         display: flex;
         align-items: center;
         justify-content: center;
@@ -112,7 +111,7 @@ const VerticalNavContainer = styled.nav`
 
     position: relative;
 
-    @media ${device.tablet} { 
+    @media ${device.laptop} {
         display: none;
     }
 `
@@ -134,7 +133,7 @@ const SideButtonContainer = styled.div`
     height: 100%;
     width: 100%;
 
-    @media ${device.tablet} { 
+    @media ${device.laptop} { 
         justify-content: center;
     }
 `
@@ -153,7 +152,7 @@ const GithubButton = styled.a`
 
     display: none;
 
-    @media ${device.tablet} { 
+    @media ${device.laptop} { 
         display: flex;
         align-items: center;
         justify-content: center;
@@ -174,7 +173,7 @@ const MenuButton = styled.div`
 
     display: block;
 
-    @media ${device.tablet} { 
+    @media ${device.laptop} { 
         display: none;
     }
 `
