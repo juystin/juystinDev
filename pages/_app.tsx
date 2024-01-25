@@ -1,5 +1,6 @@
 import {AppProps} from 'next/app';
 import {useEffect, useState} from 'react';
+import { usePreserveScroll } from '../components/utility/PreserveScrollOnBack';
 
 import '../styles/global.css';
 

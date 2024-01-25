@@ -20,6 +20,7 @@ import GlobalTheme from '../styles/GlobalTheme';
 import Picture from '../components/content/pictures/Picture';
 import { useEffect, useState } from 'react';
 import { device } from '../styles/devices';
+import { usePreserveScroll } from '../components/utility/PreserveScrollOnBack';
 
 const DepthLayout = styled.div`
 	position: relative;
@@ -57,12 +58,20 @@ const PageLayout = styled.div`
 export default function App() {
 
 	const [activePicture, setActivePicture] = useState(null);
+
+	usePreserveScroll()
 	
 	return (
 		<BrowserRouter>
 			<Head>
 				<title>juystin.dev</title>
-				<link rel="icon" href="/favicon.ico" />
+				<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+				<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+				<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+				<link rel="manifest" href="/site.webmanifest" />
+				<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
+				<meta name="msapplication-TileColor" content="#ffffff" />
+				<meta name="theme-color" content="#ff0000" />
 			</Head>
 			<ScrollToTop />
 			<GlobalTheme>
