@@ -31,8 +31,6 @@ const TitleContainer = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: center;
-
-    overflow: clip;
 `
 
 const Title = styled(animated.h1)`
@@ -69,7 +67,7 @@ const Home = ({}) => {
     const [textIntroAnimation, textIntroApi] = useSpring(() => ({
 		from: {
 			opacity: 0,
-            y: 200,
+            y: "3vw"
 		}
   	}));
 
@@ -77,7 +75,7 @@ const Home = ({}) => {
         textIntroApi.start({
             to: {
                 opacity: 1,
-                y: 0,
+                y: "0",
             },
             config: {
                 mass: 1,

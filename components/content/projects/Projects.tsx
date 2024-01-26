@@ -22,7 +22,6 @@ const TitleSection = styled.div`
 
 const TitleContainer = styled.div`
     height: 100%;
-    overflow: clip;
 `
 
 const Title = styled(animated.h1)`
@@ -56,7 +55,7 @@ const Projects = ({data}) => {
     const [textIntroAnimation, textIntroApi] = useSpring(() => ({
 		from: {
 			opacity: 0,
-            y: 200,
+            y: "3vw"
 		}
   	}));
 
@@ -64,7 +63,7 @@ const Projects = ({data}) => {
         textIntroApi.start({
             to: {
                 opacity: 1,
-                y: 0,
+                y: "0",
             },
             config: {
                 mass: 1,
