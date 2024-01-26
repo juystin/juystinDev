@@ -80,6 +80,10 @@ const Image = styled.div<{ id: number }>`
     overflow: clip;
 
     background: ${props => props.id % 2 === 0 ? props.theme.colors.white : props.theme.colors.black};
+
+    @media ${device.tablet}, ${device.laptop} {
+        background: ${props => props.theme.colors.white};
+    }
 `
 
 const TextSection = styled.div`
