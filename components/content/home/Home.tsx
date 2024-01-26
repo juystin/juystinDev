@@ -7,13 +7,14 @@ import { device } from "../../../styles/devices";
 const PageStructure = styled.main`
     display: grid;
     grid-template-rows: min-content auto;
-    row-gap: 35px;
+    row-gap: 16px;
 
     width: 100%;
 
     margin-top: 50px;
 
     @media ${device.tablet}, ${device.laptop} {
+        row-gap: 35px;
         margin-top: 75px;
 	}
 `

@@ -52,7 +52,7 @@ const ImageSection = styled.div`
 
 const ImageScroller = styled.div`
     display: flex;
-    gap: 20px;
+    gap: 12px;
 
     height: 100%;
     width: fit-content;
@@ -65,6 +65,8 @@ const ImageScroller = styled.div`
         display: grid;
         grid-column: 1 / 2;
         grid-row: 1 / 2;
+
+        gap: 20px;
 
         height: auto;
         width: auto;
@@ -205,6 +207,12 @@ const ButtonContainer = styled.div`
     flex-direction: column;
     row-gap: 10px;
     width: 100%;
+
+    margin-top: 12px;
+
+    @media ${device.tablet}, ${device.laptop} {
+        margin-top: 0px;
+    }
 `
 
 const DemoButton = styled(Link)`
@@ -221,14 +229,19 @@ const DemoButton = styled(Link)`
 
 const DemoText = styled.span`
     font-family: Roboto;
-    font-size: 18pt;
+    font-size: 14pt;
+    font-weight: 400;
 
     text-transform: uppercase;
     letter-spacing: 0.75px;
 
-    font-weight: 300;
-
     color: ${props => props.theme.colors.white};
+
+    @media ${device.tablet}, ${device.laptop} {
+        font-family: Roboto;
+        font-size: 18pt;
+        font-weight: 300;
+    }
 `
 
 const GitHubButton = styled(Link)`
@@ -252,6 +265,14 @@ const GithubText = styled.span`
     font-weight: 550;
 
     color: ${props => props.theme.colors.white};
+
+    display: none;
+
+    @media ${device.tablet}, ${device.laptop} {
+        display: grid;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
 `
 
 const Thumbnail = styled.img`
