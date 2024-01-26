@@ -79,10 +79,10 @@ const Image = styled.div<{ id: number }>`
     border-radius: 6px;
     overflow: clip;
 
-    background: ${props => props.id % 2 === 0 ? props.theme.colors.white : props.theme.colors.black};
+    background: ${props => props.theme.colors.white};
 
     @media ${device.tablet}, ${device.laptop} {
-        background: ${props => props.theme.colors.white};
+        background: ${props => props.id % 2 === 0 ? props.theme.colors.white : props.theme.colors.black};
     }
 `
 
