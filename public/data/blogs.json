@@ -16,7 +16,9 @@
                 "While the blogs are meant to be informative, they also serve as a journal of sorts for me, preserving my growth as a programmer, an engineer, and a creator since I began this project in 2020.",
                 "It's a culmination of four years of planning, learning, and creating. I'm glad to be able to share the result and the journey with you."
             ],
-            "pubDate": "2024 JAN 20"
+            "pubDate": "2024 JAN 20",
+            "imageUrl": "/assets/thumbnails/blogs/0/0.png",
+            "imageCenter": "75% 50%"
         }
     ]
 }

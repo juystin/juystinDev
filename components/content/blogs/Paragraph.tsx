@@ -25,7 +25,7 @@ const Paragraph = ({ content, delay }) => {
 
     const [containerAnimation, containerApi] = useSpring(() => ({
         from: {
-            y: -8
+            y: "0.75vh"
         }
     }))
 
@@ -43,13 +43,13 @@ const Paragraph = ({ content, delay }) => {
             config: {
                 tension: 20,
                 friction: 30,
-                mass: 10
+                mass: 8
             },
             delay: delay
         })
         containerApi.start({
             to: {
-                y: 0
+                y: "0vh"
             },
             config: {
                 tension: 60,

@@ -137,13 +137,13 @@ const ImageSection = styled.div`
     display: flex;
     width: 100%;
     height: auto;
-    aspect-ratio: 5 / 1;
+    aspect-ratio: 2 / 1;
     flex-direction: column;
 
-    margin-top: 15px;
+    margin: 10px 0px;
     
     @media ${device.tablet}, ${device.laptop} {
-		margin-top: 0px;
+		margin: 0px 0px;
         aspect-ratio: 7 / 1;
 	}
 `
@@ -156,36 +156,30 @@ const ImageContainer = styled(animated.div)`
     overflow: clip;
 `
 
-const Image = styled.img`
+const Image = styled.img<{ center: string }>`
     height: 100%;
     width: 100%;
 
     object-fit: cover;
-
-    @media ${device.tablet}, ${device.laptop} {
-		object-fit: cover;
-	}
+    object-position: 75% 50%;
 `
 
 const Blog = ({data}) => {
     const [titleIntroAnimation, titleIntroApi] = useSpring(() => ({
 		from: {
-			opacity: 1,
-            y: 200,
+            y: "15vw",
 		}
   	}));
 
     const [subtitleIntroAnimation, subtitleIntroApi] = useSpring(() => ({
 		from: {
-			opacity: 1,
-            x: -800,
+            x: "-40vw",
 		}
   	}));
 
     const [dateIntroAnimation, dateIntroApi] = useSpring(() => ({
 		from: {
-			opacity: 0,
-            x: 800,
+            y: "5vw",
 		}
   	}));
 
@@ -198,8 +192,7 @@ const Blog = ({data}) => {
     useEffect(() => {
         titleIntroApi.start({
             to: {
-                opacity: 1,
-                y: 0,
+                y: "0vw",
             },
             config: {
                 mass: 1,
@@ -210,8 +203,7 @@ const Blog = ({data}) => {
         })
         subtitleIntroApi.start({
             to: {
-                opacity: 1,
-                x: 0,
+                x: "0vw",
             },
             config: {
                 mass: 1,
@@ -222,8 +214,7 @@ const Blog = ({data}) => {
         })
         dateIntroApi.start({
             to: {
-                opacity: 1,
-                x: 0,
+                y: "0vw",
             },
             config: {
                 mass: 1,
@@ -237,11 +228,11 @@ const Blog = ({data}) => {
                 opacity: 1
             },
             config: {
-                mass: 10,
-                friction: 100,
-                tension: 60
+                mass: 75,
+                friction: 60,
+                tension: 50
             },
-            delay: 700
+            delay: 600
         })
     }, [])
 
@@ -264,13 +255,13 @@ const Blog = ({data}) => {
             </BlogHeaderSection>
             <ImageSection>
                 <ImageContainer style={imageIntroAnimation}>
-                    <Image src={"/assets/thumbnails/blogs/" + data.id + "/0.png"} alt={data.id} />
+                    <Image src={data.imageUrl} alt={data.id} center={data.center}/>
                 </ImageContainer>
             </ImageSection>
             <ContentContainer>
                 {
                     data.content.map((paragraph: string, index: number) => {
-                        return <Paragraph content={paragraph} delay={(575 + (index * 275))}/>
+                        return <Paragraph content={paragraph} delay={(1000 + (index * 275))}/>
                     })
                 }
             </ContentContainer>
