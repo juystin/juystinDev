@@ -257,14 +257,7 @@ const GitHubButton = styled(Link)`
 `
 
 const GithubText = styled.span`
-    font-family: Roboto;
-    font-size: 18pt;
-
-    text-transform: uppercase;
-
-    font-weight: 550;
-
-    color: ${props => props.theme.colors.white};
+    
 
     display: none;
 
@@ -272,6 +265,14 @@ const GithubText = styled.span`
         display: grid;
         grid-column: 1 / 2;
         grid-row: 1 / 2;
+        
+        font-weight: 300;
+        font-family: Roboto;
+        font-size: 18pt;
+
+        color: ${props => props.theme.colors.white};
+
+        text-transform: uppercase;
     }
 `
 
