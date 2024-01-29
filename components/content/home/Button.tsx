@@ -38,6 +38,7 @@ const ButtonName = styled.h1`
 
 const StyledImage = styled(Image)`
     width: 100%;
+    border-radius: 6px;
 `
 
 const Button = ({id, name}) => {
