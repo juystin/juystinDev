@@ -22,7 +22,7 @@
             "id": 1,
             "short": "car-identifier",
             "title": "car-identifier",
-            "description": "A script designed to track the centroids of vehicles in a given video or image sequence by utilizing neural network models",
+            "description": "A script designed to track the centroids of vehicles in a given video or image sequence. Utilizes neural network models trained under the YOLO architecture. The script is capable of tracking multiple vehicles, and extracting annotated and cropped images.",
             "image_urls": [
                 "assets/thumbnails/projects/car-identifier/0.png"
             ],
