@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import { device } from "../../../styles/devices";
 
-const ButtonContainer = styled(animated.div)`
+const Container = styled(animated.div)`
     display: flex;
     width: 100%;
     height: auto;
@@ -22,15 +22,14 @@ const ButtonContainer = styled(animated.div)`
 	}
 `
 
-const ImageContainer = styled(animated.div)`
+const ButtonContainer = styled(animated.div)`
     background: ${props => props.theme.colors.scarlet};
     height: 100%;
     border-radius: 6px;
 
     overflow: clip;
 
-    position: absolute;
-    z-index: 1;
+    position: relative;
 `
 
 const ShadowOverlay = styled.div`
@@ -78,35 +77,26 @@ const BlogTitle = styled.h1`
     color: ${props => props.theme.colors.white};
     font-family: Raleway;
 
-    font-size: 18pt;
+    font-size: 2.4vw;
 
     margin: 0 0;
-
-    @media ${device.tablet} {
-		font-size: 28pt;
-	}
-
-    @media ${device.laptop} {
-		font-size: 36pt;
-	}
-
 `
 
 const BlogSubtitle = styled.h2`
     color: ${props => props.theme.colors.white};
     font-family: Raleway;
 
-    font-size: 12pt;
+    font-size: 2vw;
 
     margin: 0 0;
+`
 
-    @media ${device.tablet} {
-		font-size: 20pt;
-	}
+const ImageContainer = styled.div`
+    width: 100%;
+    height: 100%;
 
-    @media ${device.laptop} {
-		font-size: 28pt;
-	}
+    position: absolute;
+    z-index: 0;
 `
 
 const StyledImage = styled(Image)`
@@ -114,6 +104,22 @@ const StyledImage = styled(Image)`
     height: 100%;
 
     object-fit: cover;
+`
+
+const BackgroundCircle = styled.div`
+    border-radius: 100%;
+
+    width: 60%;
+    height: 500%;
+
+    top: -200%;
+    left: -20%;
+
+    background: ${props => props.theme.colors.black};
+    opacity: 0.92;
+
+    position: absolute;
+    z-index: 1;
 `
 
 const Button = ({data}) => {
@@ -141,25 +147,27 @@ const Button = ({data}) => {
     }, [])
 
     return (
-        <ButtonContainer style={buttonAnimation} onClick={() => navigate("/blogs/" + data.id + "/")}>
+        <Container style={buttonAnimation} onClick={() => navigate("/blogs/" + data.id + "/")}>
             <ShadowOverlay />
             <ScreenOverlay />
-            <ImageContainer>
-                <StyledImage 
-                    src={"/assets/thumbnails/blogs/" + data.id + "/0.png"} 
-                    alt={data.title + ": " + data.subtitle}
-                    
-                    width={1920}
-                    height={274}
-                />
-            </ImageContainer>
+            <ButtonContainer>
+                <ImageContainer>
+                    <StyledImage 
+                        src={"/assets/thumbnails/blogs/" + data.id + "/0.png"} 
+                        alt={data.title + ": " + data.subtitle}
+                        width={1920}
+                        height={274}
+                    />
+                </ImageContainer>
+                <BackgroundCircle />
+            </ButtonContainer>
             <BlogNameSection>
                 <BlogNameContainer>
                     <BlogTitle>{data.title}</BlogTitle>
                     <BlogSubtitle>{data.subtitle}</BlogSubtitle>
                 </BlogNameContainer>
             </BlogNameSection>
-        </ButtonContainer>
+        </Container>
      );
 }
  

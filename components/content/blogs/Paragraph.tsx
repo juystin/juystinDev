@@ -16,9 +16,15 @@ const ParagraphStyled = styled(animated.p)`
 
     font-family: Roboto;
     font-weight: 300;
+    
+    margin: 0 0;
 `
 
 const Container = styled(animated.div)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
 `
 
 const Paragraph = ({ content, delay }) => {

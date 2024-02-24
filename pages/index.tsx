@@ -34,7 +34,7 @@ const PageLayout = styled.div`
 
 	z-index: 1;
 
-	min-height: 100dvh;
+	min-height: 100vh;
 	width: auto;
 
 	display: grid;

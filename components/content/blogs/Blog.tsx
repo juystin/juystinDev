@@ -8,7 +8,7 @@ const PageStructure = styled.main`
     display: grid;
     grid-template-rows: auto auto auto;
     row-gap: 0px;
-    padding: 0 2vw;
+    padding: 0 7vw;
 
     margin-top: 50px;
 
