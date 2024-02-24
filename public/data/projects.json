@@ -21,8 +21,8 @@
         {
             "id": 1,
             "short": "car-identifier",
-            "title": "Non-LPR Car Identification Algorithm",
-            "description": "Funded capstone project under CampusParc. A script that utilizes machine-learning detection and classification image recognition models to identify cars.",
+            "title": "car-identifier",
+            "description": "A script designed to track the centroids of vehicles in a given video or image sequence by utilizing neural network models",
             "image_urls": [
                 "assets/thumbnails/projects/car-identifier/0.png"
             ],
