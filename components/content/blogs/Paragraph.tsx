@@ -23,7 +23,6 @@ const ParagraphStyled = styled(animated.p)`
 const Container = styled(animated.div)`
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 0;
 `
 
