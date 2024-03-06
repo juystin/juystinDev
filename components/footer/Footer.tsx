@@ -9,16 +9,20 @@ const FooterSection = styled.div`
 
 const FooterName = styled.h2`
     font-family: Roboto;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 250;
     
     color: ${props => props.theme.colors.white};
 
     margin: 0 0;
 
-    @media ${device.tablet}, ${device.laptop} { 
+    @media ${device.tablet} {
         font-size: 16px;
-    }
+	}
+
+    @media ${device.laptop} {
+        font-size: 18px;
+	}
 `
 
 const Footer = () => {

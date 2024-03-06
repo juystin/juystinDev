@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Markdown from "react-markdown";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
+import { device } from "../../../styles/devices";
 
 export interface ParagraphProps {
     content: string,
@@ -10,14 +11,24 @@ export interface ParagraphProps {
 
 const ParagraphStyled = styled(animated.p)`
     color: white;
-    font-size: 17px;
-    line-height: 24px;
+    font-size: 12px;
+    line-height: 18px;
     text-align: justify;
 
     font-family: Roboto;
-    font-weight: 300;
+    font-weight: 100;
     
     margin: 0 0;
+
+    @media ${device.tablet} {
+        font-size: 16px;
+        line-height: 21px;
+	}
+
+    @media ${device.laptop} {
+        font-size: 18px;
+        line-height: 24px;
+	}
 `
 
 const Container = styled(animated.div)`
