@@ -19,7 +19,21 @@
             "github": "https://github.com/juystin/BrutusMapsRR"
         },
         {
-            "id": 1,
+            "id": 2,
+            "short": "les",
+            "title": "Le's Coffee",
+            "description": "A product website for a start-up Vietnamese coffee brand.",
+            "image_urls": [
+                "assets/thumbnails/projects/les/0.png"
+            ],
+            "blogs": [
+                
+            ],
+            "demo": "https://coffee-bice.vercel.app",
+            "demoText": "Visit website"
+        },
+        {
+            "id": 2,
             "short": "car-identifier",
             "title": "car-identifier",
             "description": "A script designed to track the centroids of vehicles in a given video or image sequence. Utilizes neural network models trained under the YOLO architecture. The script is capable of tracking multiple vehicles, and extracting annotated and cropped images.",
@@ -32,7 +46,7 @@
             "github": "https://github.com/juystin/car-identifier"
         },
         {
-            "id": 2,
+            "id": 3,
             "short": "brutusforce",
             "title": "BrutusForce",
             "description": "API scraper library for classes, classrooms, buildings, libraries, and instructors for Ohio State's main campus.",
@@ -45,7 +59,7 @@
             "github": "https://github.com/juystin/BrutusForceRedux"
         },
         {
-            "id": 3,
+            "id": 4,
             "short": "microcontroller",
             "title": "Temperature-Reading and Voltage-Ramping Microcontroller",
             "description": "Project for Embedded Programming course. A microcontroller capable of sensing environmental temperature, and amplifying an input signal by a specified degree.",
@@ -57,7 +71,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 5,
             "short": "bugsworld",
             "title": "BugsWorld Programming Language",
             "description": "Project for Data Structures & Algorithms course. A custom programming language for a game called BugsWorld.",
