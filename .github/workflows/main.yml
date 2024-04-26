@@ -17,9 +17,9 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script: |
-          cd /sites/BrutusMapsBackend
+          cd /sites/juystinDev
           git pull origin main
-          docker rmi 'brutusmapsbackend'
-          docker build -t 'brutusmapsbackend' .
-          docker run --detach new_image_name
+          docker rmi 'juystindev'
+          docker build -t 'juystindev' .
+          docker run --detach 'juystindev'
           
