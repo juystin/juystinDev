@@ -23,5 +23,5 @@ jobs:
           docker rm juystindev || true
           docker rmi 'juystindev' || true
           docker build -t 'juystindev' .
-          docker run --detach -p 3000:3000 'juystindev'
+          docker run --detach -p 420:3000 'juystindev'
           
