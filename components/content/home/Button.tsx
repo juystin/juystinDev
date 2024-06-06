@@ -9,7 +9,6 @@ import { device } from "../../../styles/devices";
 const ButtonContainer = styled(animated.div)`
     width: 100%;
     height: auto;
-    aspect-ratio: 5 / 2;
 
     display: flex;
     flex-direction: column;
@@ -19,8 +18,7 @@ const ButtonContainer = styled(animated.div)`
 
 const ImageContainer = styled.div<{ index: number }>`
     background: ${props => props.index % 2 === 0 ? props.theme.colors.white : props.theme.colors.black};
-    max-height: 100%;
-    max-width: 100%;
+    aspect-ratio: 5 / 2;
     border-radius: 6px;
 
     @media ${device.laptop} {
